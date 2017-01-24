@@ -1,4 +1,5 @@
 <?php
+namespace RedePay\Utils;
 
 trait Client {
     public function __construct() {

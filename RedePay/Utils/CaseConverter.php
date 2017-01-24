@@ -1,4 +1,5 @@
 <?php
+namespace RedePay\Utils;
 
 trait CaseConverter {
     public function snakeToUpperCamel($sentence) {

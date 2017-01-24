@@ -1,7 +1,7 @@
 <?php
-require_once "RedePay/Utils/RequestInterface.php";
+namespace RedePay\Transaction\Request;
 
-class TransactionGet implements RequestInterface {
+class TransactionGet implements \RedePay\Utils\RequestInterface {
     private $transactionId;
 
     public function __construct($transactionId) {

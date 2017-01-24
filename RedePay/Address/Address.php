@@ -1,8 +1,8 @@
 <?php
-require_once "RedePay/Utils/Fillable.php";
+namespace RedePay\Address;
 
 class Address {
-    use Fillable;
+    use \RedePay\Utils\Fillable;
 
     private $alias;
     private $street;

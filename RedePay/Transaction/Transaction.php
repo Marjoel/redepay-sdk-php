@@ -1,8 +1,8 @@
 <?php
-require_once "RedePay/Utils/Fillable.php";
+namespace RedePay\Transaction;
 
 class Transaction {
-	use Fillable;
+	use \RedePay\Utils\Fillable;
 
     private $id;
     private $creationDate;

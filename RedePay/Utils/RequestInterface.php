@@ -1,4 +1,5 @@
 <?php
+namespace RedePay\Utils;
 
 interface RequestInterface {
     const HTTP_GET = "GET";

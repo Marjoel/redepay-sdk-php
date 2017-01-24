@@ -1,8 +1,8 @@
 <?php
-require_once "RedePay/Utils/Fillable.php";
+namespace RedePay\Shipping;
 
 class Shipping {
-    use Fillable;
+	use \RedePay\Utils\Fillable;
 
     private $address;
     private $cost;

@@ -1,8 +1,8 @@
 <?php
-require_once "RedePay/Utils/Fillable.php";
+namespace RedePay\History;
 
 class History {
-    use Fillable;
+    use \RedePay\Utils\Fillable;
 
     private $status;
     private $date;

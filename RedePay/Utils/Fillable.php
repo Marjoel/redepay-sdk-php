@@ -1,8 +1,8 @@
 <?php
-require_once "RedePay/Utils/CaseConverter.php";
+namespace RedePay\Utils;
 
 trait Fillable {
-	use CaseConverter;
+	use \RedePay\Utils\CaseConverter;
 
     private function fill($data) {
         foreach ($data as $key => $value) {
