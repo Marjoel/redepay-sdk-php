@@ -1,14 +1,6 @@
 <?php
 namespace RedePay\Transaction;
 
-//require_once "src/Transaction/Transaction.php";
-//require_once "src/Shipping/Shipping.php";
-//require_once "src/Shipping/ShippingBuilder.php";
-//require_once "src/Item/Item.php";
-//require_once "src/History/History.php";
-
-
-
 trait TransactionBuilder {
 	use \RedePay\Shipping\ShippingBuilder;
 	
@@ -20,7 +12,7 @@ trait TransactionBuilder {
 		}
 
 		foreach ($data->statusHistory as $key => $value) {
-			$data->statusHistory[$key] = new \RedePay\History\History($value);
+			$data->statusHistory[$key] = new \RedePay\History\StatusHistory($value);
 		}
         return new Transaction(get_object_vars($data));
     }

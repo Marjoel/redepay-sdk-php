@@ -1,13 +1,13 @@
 <?php
-namespace RedePay\Transaction\Request;
+namespace RedePay\Order\Request;
 
-class TransactionGet implements \RedePay\Utils\RequestInterface {
+class OrderGet implements \RedePay\Utils\RequestInterface {
 	private $apiKey;
-    private $transactionId;
+    private $orderId;
 
-    public function __construct($apiKey, $transactionId) {
+    public function __construct($apiKey, $orderId) {
 		$this->apiKey = $apiKey;
-        $this->transactionId = $transactionId;
+        $this->orderId = $orderId;
     }
 
     public function getPayload() {
@@ -15,11 +15,11 @@ class TransactionGet implements \RedePay\Utils\RequestInterface {
     }
 
     public function getPath() {
-        return sprintf("%s/transactions/%s", $this->getApiUrl(), $this->getId());
+        return sprintf("%s/orders/%s", $this->getApiUrl(), $this->getId());
     }
 
     public function getId() {
-        return $this->transactionId;
+        return $this->orderId;
     }
 
     public function getApiKey() {

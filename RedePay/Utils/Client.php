@@ -33,7 +33,7 @@ trait Client {
 		}
 
 		curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_USERAGENT, "Rede-Pay/1.0 (+https://github.com/marjoel/redepay-opencart)");
+        curl_setopt($curl, CURLOPT_USERAGENT, "Rede-Pay/1.0 (+https://github.com/marjoel/redepay-sdk-php)");
         curl_setopt($curl, CURLOPT_VERBOSE, 0);
         curl_setopt($curl, CURLOPT_HEADER, 1);
 

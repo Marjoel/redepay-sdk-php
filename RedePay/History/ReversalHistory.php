@@ -1,18 +1,18 @@
 <?php
 namespace RedePay\History;
 
-class History {
+class ReversalHistory {
     use \RedePay\Utils\Fillable;
 
-    private $status;
+    private $value;
     private $date;
 
     public function __construct($data) {
         $this->fill($data);
     }
 
-    public function getStatus() {
-        return $this->status;
+    public function getValue() {
+        return $this->value;
     }
 
     public function getDate() {
