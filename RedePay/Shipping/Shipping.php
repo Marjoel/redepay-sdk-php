@@ -18,4 +18,12 @@ class Shipping {
     public function getCost() {
         return $this->cost;
     }
+
+    public function setAddress($address) {
+        $this->address = $address;
+    }
+
+    public function setCost($cost) {
+    	$this->cost = $cost;
+    }
 }

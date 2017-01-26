@@ -16,4 +16,10 @@ class OrderHandler {
 		$response = $this->send($request);
 		return $this->buildOrder($response);
     }
+
+    public function create($order) {
+        $request = new Request\OrderCreate($this->apiKey, $order);
+		$response = $this->send($request);
+		return $this->buildOrder($response);
+    }
 }

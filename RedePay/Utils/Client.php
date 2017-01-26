@@ -6,7 +6,7 @@ trait Client {
     }
 
     public function send(RequestInterface $request) {
-		$response = $this->execute($request->getApiKey(), $request->getPath(), $request->getMethod(), $request->getData());
+		$response = $this->execute($request->getApiKey(), $request->getPath(), $request->getMethod(), $request->getPayLoad());
 		return json_decode($response);
     }
 	
@@ -16,7 +16,7 @@ trait Client {
 			"Accept: application/json",
 			"Content-Type: application/json"
 		);
-
+		
 		$curl = curl_init();
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
