@@ -4,13 +4,13 @@ namespace RedePay\Order\Request;
 class OrderCreate implements \RedePay\Utils\RequestInterface {
 	private $apiKey;
 	private $order;
-	
-    public function __construct($apiKey, $order) {
+
+	public function __construct($apiKey, $order) {
 		$this->apiKey = $apiKey;
 		$this->order = $order;
-    }
+}
 
-    public function getPayload() {
+	public function getPayload() {
 		$reference = $this->order->getReference();
 		$discount = $this->order->getDiscount();
 		$settings = $this->handleSettings($this->order);
@@ -49,27 +49,27 @@ class OrderCreate implements \RedePay\Utils\RequestInterface {
 			unset($parameters["urls"]);
 		}
 		return json_encode($parameters, JSON_UNESCAPED_UNICODE);
-    }
+	}
 
-    public function getPath() {
-        return sprintf("%s/orders", $this->getApiUrl());
-    }
+	public function getPath() {
+		return sprintf("%s/orders", $this->getApiUrl());
+	}
 
-    public function getApiKey() {
-        return $this->apiKey;
-    }
+	public function getApiKey() {
+		return $this->apiKey;
+	}
 
-    public function getData() {
-        return null;
-    }
+	public function getData() {
+		return null;
+	}
 
-    public function getMethod() {
-        return self::HTTP_POST;
-    }
+	public function getMethod() {
+		return self::HTTP_POST;
+	}
 
-    public function getApiUrl() {
-        return self::API_URL;
-    }
+	public function getApiUrl() {
+		return self::API_URL;
+	}
 
 	private function handleCustomer($order) {
 		$name = $order->getCustomer()->getName();

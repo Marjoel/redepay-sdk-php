@@ -4,35 +4,35 @@ namespace RedePay\Order;
 class Order {
 	use \RedePay\Utils\Fillable;
 
-    private $id;
-    private $orderId;
-    private $reference;
-    private $createdAt;
-    private $expiresAt;
-    private $status;
-    private $customer;
-    private $items;
-    private $discount;
-    private $shipping;
-    private $reversalHistory;
-    private $transactionHistory;
-    private $statusHistory;
-    private $trackingNumberHistory;
-    private $settings;
-    private $urls;
+	private $id;
+	private $orderId;
+	private $reference;
+	private $createdAt;
+	private $expiresAt;
+	private $status;
+	private $customer;
+	private $items;
+	private $discount;
+	private $shipping;
+	private $reversalHistory;
+	private $transactionHistory;
+	private $statusHistory;
+	private $trackingNumberHistory;
+	private $settings;
+	private $urls;
 
-    public function __construct($data) {
-        $this->fill($data);
-    }
-	
+	public function __construct($data) {
+		$this->fill($data);
+	}
+
 	public function getId() {
 		return $this->id;
 	}
-	
+
 	public function getOrderId() {
 		return $this->orderId;
 	}
-	
+
 	public function getCreatedAt() {
 		return $this->createdAt;
 	}
