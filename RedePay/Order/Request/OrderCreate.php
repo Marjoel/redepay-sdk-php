@@ -1,14 +1,14 @@
 <?php
 namespace RedePay\Order\Request;
 
-class OrderCreate implements \RedePay\Utils\RequestInterface {
-	private $apiKey;
+use \RedePay\Utils\RequestInterface;
+
+class OrderCreate implements RequestInterface {
 	private $order;
 
-	public function __construct($apiKey, $order) {
-		$this->apiKey = $apiKey;
+	public function __construct($order) {
 		$this->order = $order;
-}
+	}
 
 	public function getPayload() {
 		$reference = $this->order->getReference();
@@ -53,10 +53,6 @@ class OrderCreate implements \RedePay\Utils\RequestInterface {
 
 	public function getPath() {
 		return sprintf("%s/orders", $this->getApiUrl());
-	}
-
-	public function getApiKey() {
-		return $this->apiKey;
 	}
 
 	public function getData() {
@@ -121,7 +117,7 @@ class OrderCreate implements \RedePay\Utils\RequestInterface {
 			"cost" => $cost,
 			"address" => $address
 		);
-		
+
 		if(!$cost || $cost == 0) {
 			unset($parameters["cost"]);
 		}

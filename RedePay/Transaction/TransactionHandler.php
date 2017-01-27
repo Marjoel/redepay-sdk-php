@@ -1,19 +1,16 @@
 <?php
 namespace RedePay\Transaction;
 
-class TransactionHandler {
-	use \RedePay\Utils\Client;
-	use TransactionBuilder;
+use \RedePay\Utils\AbstractHandler;
+use \RedePay\Utils\Client;
+use \RedePay\Transaction\Request\TransactionGet;
 
-	private $apiKey;
+class TransactionHandler extends AbstractHandler {
+	use \RedePay\Transaction\TransactionBuilder;
 
-	public function __construct($apiKey) {
-		$this->apiKey = $apiKey;
-    }
-
-    public function get($transactionId) {
-        $request = new Request\TransactionGet($this->apiKey, $transactionId);
-		$response = $this->send($request);
+	public function get($transactionId) {
+		$request = new TransactionGet($transactionId);
+		$response = $this->client->send($request);
 		return $this->buildTransaction($response);
-    }
+	}
 }

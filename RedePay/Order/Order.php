@@ -21,8 +21,10 @@ class Order {
 	private $settings;
 	private $urls;
 
-	public function __construct($data) {
-		$this->fill($data);
+	public function __construct($data = null) {
+		if(isset($data)) {
+			$this->fill($data);
+		}
 	}
 
 	public function getId() {

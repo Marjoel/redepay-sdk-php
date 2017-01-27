@@ -1,18 +1,21 @@
 <?php
 namespace RedePay\Utils;
 
-trait Client {
-	public function __construct() {
+class Client {
+	private $apiKey;
+
+	public function __construct($apiKey) {
+		$this->apiKey = $apiKey;
 	}
 
 	public function send(RequestInterface $request) {
-		$response = $this->execute($request->getApiKey(), $request->getPath(), $request->getMethod(), $request->getPayLoad());
+		$response = $this->execute($request->getPath(), $request->getMethod(), $request->getPayLoad());
 		return json_decode($response);
 	}
 
-	private function execute($apiKey, $url, $method, $data) {
+	private function execute($url, $method, $data) {
 		$headers = array(
-			"access-token: " . $apiKey,
+			"access-token: " . $this->getApiKey(),
 			"Accept: application/json",
 			"Content-Type: application/json"
 		);
@@ -42,10 +45,14 @@ trait Client {
 		$http_body = substr($response, $http_header_size);
 
 		$data = $http_body;
-		
-		if (json_last_error() > 0) { 
+
+		if(json_last_error() > 0) { 
 			$data = $http_body;
 		}
 		return $data;
+	}
+	
+	public function getApiKey() {
+		return $this->apiKey;
 	}
 }
