@@ -5,8 +5,8 @@
 ```Importante! Esta SDK é opensource e não possui vínculo com a Rede ou Itaú.```
 
 ### Instalação
-1. [Clique aqui](https://github.com/Marjoel/redepay-sdk-php/wiki "Rede Pay") para realizar o download da versão estável da SDK.
-1. [Clique aqui](https://github.com/Marjoel/redepay-sdk-php/releases "Rede Pay") para ver a documentação de integração da SDK do Rede Pay.
+1. [Clique aqui](https://github.com/Marjoel/redepay-sdk-php/releases "Rede Pay") para realizar o download da versão estável da SDK.
+1. [Clique aqui](https://github.com/Marjoel/redepay-sdk-php/wiki "Rede Pay") para ver a documentação de integração da SDK do Rede Pay.
 
 ### Notas
 
