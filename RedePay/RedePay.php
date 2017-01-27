@@ -8,29 +8,29 @@ use \RedePay\Order\OrderHandler;
 class RedePay {
 	/**
 	 * @param Client
-     */
+	 */
 	private $client;
 
 	/**
-	* @param TransactionHandler
-	*/
+	 * @param TransactionHandler
+	 */
 	private $transactionHandler;
 
 	/**
-	* @param OrderHandler
-	*/
+	 * @param OrderHandler
+	 */
 	private $orderHandler;
 
 	/**
-	* @param String
-	*/
+	 * @param String
+	 */
 	public function __construct($apiKey) {
 		$this->client = new Client($apiKey);
 	}
 
 	/**
-	* @return TransactionHandler
-	*/
+	 * @return TransactionHandler
+	 */
 	public function transaction() {
 		if (!$this->transactionHandler instanceof TransactionHandler) {
 			$this->transactionHandler = new TransactionHandler($this->client);
@@ -39,8 +39,8 @@ class RedePay {
 	}
 
 	/**
-	* @return OrderHandler
-	*/
+	 * @return OrderHandler
+	 */
 	public function order() {
 		if (!$this->orderHandler instanceof OrderHandler) {
 			$this->orderHandler = new OrderHandler($this->client);
