@@ -4,8 +4,15 @@
 
 ```Importante! Esta SDK é opensource e não possui vínculo com a Rede ou Itaú.```
 
-## EM BREVE
-A SDK está em desenvolvimento, em breve a versão 1.0 será liberada.
+### Instalação
+1. [Clique aqui](https://github.com/Marjoel/redepay-sdk-php/wiki "Rede Pay") para realizar o download da versão estável da SDK.
+1. [Clique aqui](https://github.com/Marjoel/redepay-sdk-php/releases "Rede Pay") para ver a documentação de integração da SDK do Rede Pay.
+
+### Notas
+
+| Versão | Notas |
+| ------ | ----- |
+| 1.0    | Integração com as APIs de criação de pedido, consulta de pedido e consulta de transação. |
 
 ## Contribua
 
