@@ -58,7 +58,7 @@ class Transaction {
 	private $items;
 
 	/**
-	 * @param StatusHistory[]
+	 * @param History[]
      */
 	private $statusHistory;
 
@@ -167,7 +167,7 @@ class Transaction {
 	}
 
 	/**
-	 * @return StatusHistory
+	 * @return History
      */
 	public function getStatusHistory() {
 		return $this->statusHistory;

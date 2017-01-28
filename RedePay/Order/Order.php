@@ -22,27 +22,22 @@ class Order {
 	/**
 	 * @param String
 	 */
-	private $createdAt;
-
-	/**
-	 * @param String
-	 */
-	private $expiresAt;
-
-	/**
-	 * @param String
-	 */
 	private $status;
 
 	/**
-	 * @param Customer
+	 * @param String
 	 */
-	private $customer;
+	private $amount;
 
 	/**
-	 * @param Item[]
+	 * @param String
 	 */
-	private $items;
+	private $creationDate;
+
+	/**
+	 * @param String
+	 */
+	private $createdAt;
 
 	/**
 	 * @param String
@@ -50,29 +45,34 @@ class Order {
 	private $discount;
 
 	/**
+	 * @param Customer
+	 */
+	private $customer;
+
+	/**
 	 * @param Shipping
 	 */
 	private $shipping;
 
 	/**
-	 * @param ReversalHistory[]
+	 * @param Item[]
 	 */
-	private $reversalHistory;
+	private $items;
 
 	/**
-	 * @param TransactionHistory[]
-	 */
-	private $transactionHistory;
-
-	/**
-	 * @param StatusHistory[]
+	 * @param History[]
 	 */
 	private $statusHistory;
 
 	/**
-	 * @param String
+	 * @param History[]
 	 */
-	private $trackingNumberHistory;
+	private $transactionHistory;
+
+	/**
+	 * @param History[]
+	 */
+	private $reversalHistory;
 
 	/**
 	 * @param Settings
@@ -103,29 +103,8 @@ class Order {
 	/**
 	 * @return String
 	 */
-	public function getOrderId() {
-		return $this->orderId;
-	}
-
-	/**
-	 * @return String
-	 */
-	public function getCreatedAt() {
-		return $this->createdAt;
-	}
-
-	/**
-	 * @return String
-	 */
 	public function getReference() {
 		return $this->reference;
-	}
-
-	/**
-	 * @return String
-	 */
-	public function getExpiresAt() {
-		return $this->expiresAt;
 	}
 
 	/**
@@ -136,17 +115,17 @@ class Order {
 	}
 
 	/**
-	 * @return Customer
+	 * @return String
 	 */
-	public function getCustomer() {
-		return $this->customer;
+	public function getAmount() {
+		return $this->amount;
 	}
 
 	/**
-	 * @return Items[]
+	 * @return String
 	 */
-	public function getItems() {
-		return $this->items;
+	public function getCreationDate() {
+		return $this->creationDate;
 	}
 
 	/**
@@ -157,6 +136,13 @@ class Order {
 	}
 
 	/**
+	 * @return Customer
+	 */
+	public function getCustomer() {
+		return $this->customer;
+	}
+
+	/**
 	 * @return Shipping
 	 */
 	public function getShipping() {
@@ -164,31 +150,31 @@ class Order {
 	}
 
 	/**
-	 * @return ReversalHistory[]
+	 * @return Items[]
 	 */
-	public function getReversalHistory() {
-		return $this->reversalHistory;
+	public function getItems() {
+		return $this->items;
 	}
 
 	/**
-	 * @return TransactionHistory[]
-	 */
-	public function getTransactionHistory() {
-		return $this->transactionHistory;
-	}
-
-	/**
-	 * @return StatusHistory[]
+	 * @return History[]
 	 */
 	public function getStatusHistory() {
 		return $this->statusHistory;
 	}
 
 	/**
-	 * @return String
+	 * @return History[]
 	 */
-	public function getTrackingNumberHistory() {
-		return $this->trackingNumberHistory;
+	public function getTransactionHistory() {
+		return $this->transactionHistory;
+	}
+
+	/**
+	 * @return History[]
+	 */
+	public function getReversalHistory() {
+		return $this->reversalHistory;
 	}
 
 	/**
@@ -208,29 +194,8 @@ class Order {
 	/**
 	 * @param String
 	 */
-	public function setOrderId($orderId) {
-		$this->orderId = $orderId;
-	}
-
-	/**
-	 * @param String
-	 */
 	public function setReference($reference) {
 		$this->reference = $reference;
-	}
-
-	/**
-	 * @param String
-	 */
-	public function setExpiresAt($expiresAt) {
-		$this->expiresAt = $expiresAt;
-	}
-
-	/**
-	 * @param String
-	 */
-	public function setStatus($status) {
-		$this->status = $status;
 	}
 
 	/**
@@ -259,34 +224,6 @@ class Order {
 	 */
 	public function setShipping($shipping) {
 		$this->shipping = $shipping;
-	}
-
-	/**
-	 * @param ReversalHistory[]
-	 */
-	public function setReversalHistory($reversalHistory) {
-		$this->reversalHistory = $reversalHistory;
-	}
-
-	/**
-	 * @param TransactionHistory[]
-	 */
-	public function setTransactionHistory($transactionHistory) {
-		$this->transactionHistory = $transactionHistory;
-	}
-
-	/**
-	 * @param StatusHistory[]
-	 */
-	public function setStatusHistory($statusHistory) {
-		$this->statusHistory = $statusHistory;
-	}
-
-	/**
-	 * @param String
-	 */
-	public function setTrackingNumberHistory($trackingNumberHistory) {
-		$this->trackingNumberHistory = $trackingNumberHistory;
 	}
 
 	/**

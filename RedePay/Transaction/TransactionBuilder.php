@@ -5,7 +5,7 @@ use \RedePay\Customer\Customer;
 use \RedePay\Payment\Payment;
 use \RedePay\Shipping\Shipping;
 use \RedePay\Item\Item;
-use \RedePay\History\StatusHistory;
+use \RedePay\History\History;
 use \RedePay\Transaction\Transaction;
 
 trait TransactionBuilder {
@@ -33,7 +33,7 @@ trait TransactionBuilder {
 		}
 
 		foreach ($data->statusHistory as $key => $value) {
-			$data->statusHistory[$key] = new StatusHistory($value);
+			$data->statusHistory[$key] = new History($value);
 		}
 		return new Transaction(get_object_vars($data));
 	}
