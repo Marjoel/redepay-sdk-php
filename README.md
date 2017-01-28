@@ -9,7 +9,14 @@
 1. [Clique aqui](https://github.com/Marjoel/redepay-sdk-php/wiki "Rede Pay") para ver a documentação de integração da SDK do Rede Pay.
 
 ### Documentação
-1. [Consulta de Transação](https://github.com/Marjoel/redepay-sdk-php/wiki/Consulta-de-Transa%C3%A7%C3%A3o)
+
+* Introdução
+    * [Home](https://github.com/Marjoel/redepay-sdk-php/wiki)
+    * [Integração](https://github.com/Marjoel/redepay-sdk-php/wiki/Integra%C3%A7%C3%A3o)
+* Recursos
+    * [Criação de Pedido](https://github.com/Marjoel/redepay-sdk-php/wiki/Criac%C3%A3o-de-Pedido)
+    * [Consulta de Pedido](https://github.com/Marjoel/redepay-sdk-php/wiki/Consulta-de-Pedido)
+    * [Consulta de Transação](https://github.com/Marjoel/redepay-sdk-php/wiki/Consulta-de-Transa%C3%A7%C3%A3o)
 
 ### Notas
 
