@@ -1,6 +1,9 @@
 <?php
 namespace RedePay\Transaction;
 
+use \RedePay\Payment\Payment;
+use \RedePay\Customer\Customer;
+
 class Transaction {
 	use \RedePay\Utils\Fillable;
 
@@ -12,22 +15,12 @@ class Transaction {
 	/**
 	 * @param String
      */
-	private $creationDate;
+	private $reference;
 
 	/**
 	 * @param String
      */
 	private $status;
-
-	/**
-	 * @param String
-     */
-	private $customerName;
-
-	/**
-	 * @param String
-     */
-	private $customerEmail;
 
 	/**
 	 * @param String
@@ -42,32 +35,22 @@ class Transaction {
 	/**
 	 * @param String
      */
-	private $paymentMethod;
+	private $creationDate;
 
 	/**
-	 * @param String
+	 * @param Customer
      */
-	private $installments;
+	private $customer;
 
 	/**
-	 * @param String
+	 * @param Payment
      */
-	private $referenceId;
-
-	/**
-	 * @param String
-     */
-	private $tId;
+	private $payment;
 
 	/**
 	 * @param Shipping
      */
 	private $shipping;
-
-	/**
-	 * @param String
-     */
-	private $nsu;
 
 	/**
 	 * @param Item[]
@@ -82,7 +65,27 @@ class Transaction {
 	/**
 	 * @param String
      */
-	private $trackingNumber;
+	private $paymentMethod;
+
+	/**
+	 * @param String
+     */
+	private $cardBrand;
+
+	/**
+	 * @param String
+     */
+	private $installments;
+
+	/**
+	 * @param String
+     */
+	private $customerName;
+
+	/**
+	 * @param String
+     */
+	private $customerEmail;
 
 	/**
 	 * @param Transaction
@@ -103,8 +106,8 @@ class Transaction {
 	/**
 	 * @return String
      */
-	public function getCreationDate() {
-		return $this->creationDate;
+	public function getReference() {
+		return $this->reference;
 	}
 
 	/**
@@ -117,22 +120,8 @@ class Transaction {
 	/**
 	 * @return String
      */
-	public function getCustomerName() {
-		return $this->customerName;
-	}
-
-	/**
-	 * @return String
-     */
-	public function getCustomerEmail() {
-		return $this->customerEmail;
-	}
-
-	/**
-	 * @return String
-     */
-	public function getAmout() {
-		return $this->amout;
+	public function getAmount() {
+		return $this->amount;
 	}
 
 	/**
@@ -145,29 +134,22 @@ class Transaction {
 	/**
 	 * @return String
      */
-	public function getPaymentMethod() {
-		return $this->paymentMethod;
+	public function getCreationDate() {
+		return $this->creationDate;
 	}
 
 	/**
-	 * @return String
+	 * @return Customer
      */
-	public function getInstallments() {
-		return $this->installments;
+	public function getCustomer() {
+		return $this->customer;
 	}
 
 	/**
-	 * @return String
+	 * @return Payment
      */
-	public function getReferenceId() {
-		return $this->referenceId;
-	}
-
-	/**
-	 * @return String
-     */
-	public function getTid() {
-		return $this->tId;
+	public function getPayment() {
+		return new $this->payment;
 	}
 
 	/**
@@ -175,13 +157,6 @@ class Transaction {
      */
 	public function getShipping() {
 		return $this->shipping;
-	}
-
-	/**
-	 * @return String
-     */
-	public function getNsu() {
-		return $this->nsu;
 	}
 
 	/**
@@ -196,12 +171,5 @@ class Transaction {
      */
 	public function getStatusHistory() {
 		return $this->statusHistory;
-	}
-
-	/**
-	 * @return String
-     */
-	public function getTrackingNumber() {
-		return $this->trackingNumber;
 	}
 }

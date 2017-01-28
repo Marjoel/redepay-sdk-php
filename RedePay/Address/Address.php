@@ -56,13 +56,6 @@ class Address {
 	/**
 	 * @return String
 	 */
-	public function getAlias() {
-		return $this->alias;
-	}
-
-	/**
-	 * @return String
-	 */
 	public function getStreet() {
 		return $this->street;
 	}

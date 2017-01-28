@@ -1,6 +1,8 @@
 <?php
 namespace RedePay\Transaction;
 
+use \RedePay\Customer\Customer;
+use \RedePay\Payment\Payment;
 use \RedePay\Shipping\Shipping;
 use \RedePay\Item\Item;
 use \RedePay\History\StatusHistory;
@@ -10,6 +12,20 @@ trait TransactionBuilder {
 	use \RedePay\Shipping\ShippingBuilder;
 	
 	private function buildTransaction($data) {
+		$data->customer = new Customer((object) array(
+				"name" => $data->customerName,
+				"email" => $data->customerEmail
+			)
+		);
+
+		$data->payment = new Payment((object) array(
+				"method" => $data->paymentMethod,
+				"cardBrand" => $data->cardBrand,
+				"installments" => $data->installments
+			)
+		);
+
+		$data->shipping->trackingNumber = $data->trackingNumber;
 		$data->shipping = new Shipping($this->buildShipping($data->shipping));
 
 		foreach ($data->items as $key => $value) {

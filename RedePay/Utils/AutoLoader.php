@@ -16,6 +16,7 @@ $mapping = array(
     "RedePay\Order\OrderHandler" => $directory . "/Order/OrderHandler.php",
     "RedePay\Order\Request\OrderCreate" => $directory . "/Order/Request/OrderCreate.php",
     "RedePay\Order\Request\OrderGet" => $directory . "/Order/Request/OrderGet.php",
+    "RedePay\Payment\Payment" => $directory . "/Payment/Payment.php",
     "RedePay\Phone\Phone" => $directory . "/Phone/Phone.php",
     "RedePay\Settings\Settings" => $directory . "/Settings/Settings.php",
     "RedePay\Shipping\Shipping" => $directory . "/Shipping/Shipping.php",

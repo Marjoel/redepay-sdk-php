@@ -15,6 +15,11 @@ class Shipping {
 	private $cost;
 
 	/**
+	 * @param String
+     */
+	private $trackingNumber;
+
+	/**
 	 * @param Shipping
      */
 	public function __construct($data = null) {
@@ -35,6 +40,13 @@ class Shipping {
      */
 	public function getCost() {
 		return $this->cost;
+	}
+
+	/**
+	 * @return String
+     */
+	public function getTrackingNumber() {
+		return $this->trackingNumber;
 	}
 
 	/**

@@ -15,16 +15,6 @@ class StatusHistory {
 	private $date;
 
 	/**
-	 * @param String
-	 */
-	private $responsible;
-
-	/**
-	 * @param String
-	 */
-	private $reason;
-
-	/**
 	 * @param StatusHistory
 	 */
 	public function __construct($data = null) {
@@ -45,19 +35,5 @@ class StatusHistory {
 	 */
 	public function getDate() {
 		return $this->date;
-	}
-
-	/**
-	 * @return String
-	 */
-	public function getResponsible() {
-		return $this->responsible;
-	}
-
-	/**
-	 * @return String
-	 */
-	public function getReason() {
-		return $this->reason;
 	}
 }

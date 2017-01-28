@@ -8,6 +8,9 @@
 1. [Clique aqui](https://github.com/Marjoel/redepay-sdk-php/releases "Rede Pay") para realizar o download da versão estável da SDK.
 1. [Clique aqui](https://github.com/Marjoel/redepay-sdk-php/wiki "Rede Pay") para ver a documentação de integração da SDK do Rede Pay.
 
+### Documentação
+1. [Consulta de Transação](https://github.com/Marjoel/redepay-sdk-php/wiki/Consulta-de-Transa%C3%A7%C3%A3o)
+
 ### Notas
 
 | Versão | Notas |
