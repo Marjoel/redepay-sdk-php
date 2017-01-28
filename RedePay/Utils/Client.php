@@ -19,7 +19,7 @@ class Client {
 			"Accept: application/json",
 			"Content-Type: application/json"
 		);
-		
+
 		$curl = curl_init();
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);

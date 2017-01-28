@@ -84,4 +84,46 @@ class ShoppingCartRecovery {
 	public function getLogoUrl() {
 		return $this->logoUrl;
 	}
+
+	/**
+	 * @param String
+     */
+	public function setEnable($enable) {
+		$this->enable = $enable;
+	}
+
+	/**
+	 * @param String
+     */
+	public function setFirstAlert($firstAlert) {
+		$this->firstAlert = $firstAlert;
+	}
+
+	/**
+	 * @param String
+     */
+	public function setSecondAlert($secondAlert) {
+		$this->secondAlert = $secondAlert;
+	}
+
+	/**
+	 * @param String
+     */
+	public function setThirdAlert($thirdAlert) {
+		$this->thirdAlert = $thirdAlert;
+	}
+
+	/**
+	 * @param String
+     */
+	public function setFourthAlert($fourthAlert) {
+		$this->fourthAlert = $fourthAlert;
+	}
+
+	/**
+	 * @param String
+     */
+	public function setLogoUrl($logoUrl) {
+		$this->logoUrl = $logoUrl;
+	}
 }

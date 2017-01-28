@@ -33,10 +33,6 @@ class OrderCreate implements RequestInterface {
 			unset($parameters["discount"]);
 		}
 
-		if(empty($settings)) {
-			unset($parameters["settings"]);
-		}
-
 		if(empty($customer)) {
 			unset($parameters["customer"]);
 		}
@@ -68,64 +64,68 @@ class OrderCreate implements RequestInterface {
 	}
 
 	private function handleCustomer($order) {
-		$name = $order->getCustomer()->getName();
-		$email = $order->getCustomer()->getEmail();
-		$documents = $this->handleDocuments($order);
-		$phones = $this->handlePhones($order);
+        if($order->getCustomer()) {
+            $name = $order->getCustomer()->getName();
+            $email = $order->getCustomer()->getEmail();
+            $documents = $this->handleDocuments($order);
+            $phones = $this->handlePhones($order);
 
-		$parameters = array(
-			"name" => $name,
-			"email" => $email,
-			"documents" => $documents,
-			"phones" => $phones
-		);
-		return $parameters;
+            $parameters = array(
+                "name" => $name,
+                "email" => $email,
+                "documents" => $documents,
+                "phones" => $phones
+            );
+            return $parameters;
+        }
 	}
 
 	private function handleSettings($order) {
-		$expiresAt = $order->getSettings()->getExpiresAt();
-		$maxInstallments = $order->getSettings()->getMaxInstallments();
-		$attempts = $order->getSettings()->getAttempts();
-		$shoppingCartRecovery = $this->handleShoppingCartRecovery($order);
-		
-		$parameters = array(
-			"expiresAt" => $expiresAt,
-			"maxInstallments" => $maxInstallments,
-			"attempts" => $attempts,
-			"shoppingCartRecovery" => $shoppingCartRecovery
-		);
+        if($order->getSettings()) {
+            $expiresAt = $order->getSettings()->getExpiresAt();
+            $maxInstallments = $order->getSettings()->getMaxInstallments();
+            $attempts = $order->getSettings()->getAttempts();
+            $shoppingCartRecovery = $this->handleShoppingCartRecovery($order);
 
-		if(!$expiresAt) {
-			unset($parameters["expiresAt"]);
-		}
+            $parameters = array(
+                "expiresAt" => $expiresAt,
+                "maxInstallments" => $maxInstallments,
+                "attempts" => $attempts,
+                "shoppingCartRecovery" => $shoppingCartRecovery
+            );
 
-		if(!$attempts) {
-			unset($parameters["attempts"]);
-		}
+            if(!$expiresAt) {
+                unset($parameters["expiresAt"]);
+            }
 
-		if(empty($shoppingCartRecovery)) {
-			unset($parameters["shoppingCartRecovery"]);
-		}
-		return $parameters;
+            if(!$attempts) {
+                unset($parameters["attempts"]);
+            }
+
+            if(empty($shoppingCartRecovery)) {
+                unset($parameters["shoppingCartRecovery"]);
+            }
+            return $parameters;
+        }
 	}
 
 	private function handleShipping($order) {
-		$cost = $order->getShipping()->getCost();
-		$address = $this->handleAddress($order);
+        $cost = $order->getShipping()->getCost();
+        $address = $this->handleAddress($order);
 
-		$parameters = array(
-			"cost" => $cost,
-			"address" => $address
-		);
+        $parameters = array(
+            "cost" => $cost,
+            "address" => $address
+        );
 
-		if(!$cost || $cost == 0) {
-			unset($parameters["cost"]);
-		}
+        if(!$cost || $cost == 0) {
+            unset($parameters["cost"]);
+        }
 
-		if(empty($address)) {
-			unset($parameters["address"]);
-		}
-		return $parameters;
+        if(empty($address)) {
+            unset($parameters["address"]);
+        }
+        return $parameters;
 	}
 
 	private function handleItems($order) {
@@ -152,14 +152,16 @@ class OrderCreate implements RequestInterface {
 	}
 
 	private function handleUrls($order) {
-		$urls = array();
-		foreach ($order->getUrls() as $key => $url) {
-			$urls[$key] = array(
-				"kind" => $url->getKind(),
-				"url" => $url->getUrl()
-			);
-		}
-		return $urls;
+        if($order->getUrls()) {
+            $urls = array();
+            foreach ($order->getUrls() as $key => $url) {
+                $urls[$key] = array(
+                    "kind" => $url->getKind(),
+                    "url" => $url->getUrl()
+                );
+            }
+            return $urls;
+        }
 	}
 
 	private function handleAddress($order) {

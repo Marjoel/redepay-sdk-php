@@ -56,6 +56,13 @@ class Address {
 	/**
 	 * @return String
 	 */
+	public function getAlias() {
+		return $this->alias;
+	}
+
+	/**
+	 * @return String
+	 */
 	public function getStreet() {
 		return $this->street;
 	}
@@ -116,6 +123,9 @@ class Address {
 		$this->street = $street;
 	}
 
+	/**
+	 * @param String
+	 */
 	public function setNumber($number) {
 		$this->number = $number;
 	}
