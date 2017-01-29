@@ -34,6 +34,10 @@
 | ------ | ----- |
 | 1.0    | Integração com as APIs de criação de pedido, consulta de pedido e consulta de transação. |
 
+## To dos
+
+- [ ] Implementação de exceptions.
+
 ## Contribua
 
 Faça um fork do repositório, realize suas alterações e [crie um pull request](https://github.com/Marjoel/redepay-sdk-php "Clique aqui para criar um pull request").<br>
