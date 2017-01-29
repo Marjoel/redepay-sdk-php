@@ -1,53 +1,58 @@
 <?php
+/**
+*  @author   Marjoel Moreira [marjoel@marjoel.com]
+*  @license  https://www.gnu.org/licenses/gpl-3.0.en.html
+*/
+
 namespace RedePay\Phone;
 
 class Phone {
-	use \RedePay\Utils\Fillable;
+    use \RedePay\Utils\Fillable;
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	private $kind;
+    private $kind;
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	private $number;
+    private $number;
 
-	/**
-	 * @param Phone
+    /**
+     * @param Phone
      */
-	public function __construct($data = null) {
-		if(isset($data)) {
-			$this->fill($data);
-		}
-	}
+    public function __construct($data = null) {
+        if(isset($data)) {
+            $this->fill($data);
+        }
+    }
 
-	/**
-	 * @return String
+    /**
+     * @return String
      */
-	public function getKind() {
-		return $this->kind;
-	}
+    public function getKind() {
+        return $this->kind;
+    }
 
-	/**
-	 * @return String
+    /**
+     * @return String
      */
-	public function getNumber() {
-		return $this->number;
-	}
+    public function getNumber() {
+        return $this->number;
+    }
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	public function setKind($kind) {
-		$this->kind = $kind;
-	}
+    public function setKind($kind) {
+        $this->kind = $kind;
+    }
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	public function setNumber($number) {
-		$this->number = $number;
-	}
+    public function setNumber($number) {
+        $this->number = $number;
+    }
 }

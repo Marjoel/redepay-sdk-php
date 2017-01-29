@@ -1,175 +1,180 @@
 <?php
+/**
+*  @author   Marjoel Moreira [marjoel@marjoel.com]
+*  @license  https://www.gnu.org/licenses/gpl-3.0.en.html
+*/
+
 namespace RedePay\Transaction;
 
 use \RedePay\Payment\Payment;
 use \RedePay\Customer\Customer;
 
 class Transaction {
-	use \RedePay\Utils\Fillable;
+    use \RedePay\Utils\Fillable;
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	private $id;
+    private $id;
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	private $reference;
+    private $reference;
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	private $status;
+    private $status;
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	private $amount;
+    private $amount;
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	private $discount;
+    private $discount;
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	private $creationDate;
+    private $creationDate;
 
-	/**
-	 * @param Customer
+    /**
+     * @param Customer
      */
-	private $customer;
+    private $customer;
 
-	/**
-	 * @param Payment
+    /**
+     * @param Payment
      */
-	private $payment;
+    private $payment;
 
-	/**
-	 * @param Shipping
+    /**
+     * @param Shipping
      */
-	private $shipping;
+    private $shipping;
 
-	/**
-	 * @param Item[]
+    /**
+     * @param Item[]
      */
-	private $items;
+    private $items;
 
-	/**
-	 * @param History[]
+    /**
+     * @param History[]
      */
-	private $statusHistory;
+    private $statusHistory;
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	private $paymentMethod;
+    private $paymentMethod;
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	private $cardBrand;
+    private $cardBrand;
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	private $installments;
+    private $installments;
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	private $customerName;
+    private $customerName;
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	private $customerEmail;
+    private $customerEmail;
 
-	/**
-	 * @param Transaction
+    /**
+     * @param Transaction
      */
-	public function __construct($data = null) {
-		if(isset($data)) {
-			$this->fill($data);
-		}
-	}
+    public function __construct($data = null) {
+        if(isset($data)) {
+            $this->fill($data);
+        }
+    }
 
-	/**
-	 * @return String
+    /**
+     * @return String
      */
-	public function getId() {
-		return $this->id;
-	}
+    public function getId() {
+        return $this->id;
+    }
 
-	/**
-	 * @return String
+    /**
+     * @return String
      */
-	public function getReference() {
-		return $this->reference;
-	}
+    public function getReference() {
+        return $this->reference;
+    }
 
-	/**
-	 * @return String
+    /**
+     * @return String
      */
-	public function getStatus() {
-		return $this->status;
-	}
+    public function getStatus() {
+        return $this->status;
+    }
 
-	/**
-	 * @return String
+    /**
+     * @return String
      */
-	public function getAmount() {
-		return $this->amount;
-	}
+    public function getAmount() {
+        return $this->amount;
+    }
 
-	/**
-	 * @return String
+    /**
+     * @return String
      */
-	public function getDiscount() {
-		return $this->discount;
-	}
+    public function getDiscount() {
+        return $this->discount;
+    }
 
-	/**
-	 * @return String
+    /**
+     * @return String
      */
-	public function getCreationDate() {
-		return $this->creationDate;
-	}
+    public function getCreationDate() {
+        return $this->creationDate;
+    }
 
-	/**
-	 * @return Customer
+    /**
+     * @return Customer
      */
-	public function getCustomer() {
-		return $this->customer;
-	}
+    public function getCustomer() {
+        return $this->customer;
+    }
 
-	/**
-	 * @return Payment
+    /**
+     * @return Payment
      */
-	public function getPayment() {
-		return new $this->payment;
-	}
+    public function getPayment() {
+        return new $this->payment;
+    }
 
-	/**
-	 * @return Shipping
+    /**
+     * @return Shipping
      */
-	public function getShipping() {
-		return $this->shipping;
-	}
+    public function getShipping() {
+        return $this->shipping;
+    }
 
-	/**
-	 * @return Item[]
+    /**
+     * @return Item[]
      */
-	public function getItems() {
-		return $this->items;
-	}
+    public function getItems() {
+        return $this->items;
+    }
 
-	/**
-	 * @return History
+    /**
+     * @return History
      */
-	public function getStatusHistory() {
-		return $this->statusHistory;
-	}
+    public function getStatusHistory() {
+        return $this->statusHistory;
+    }
 }

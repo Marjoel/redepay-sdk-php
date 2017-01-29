@@ -1,4 +1,9 @@
 <?php
+/**
+*  @author   Marjoel Moreira [marjoel@marjoel.com]
+*  @license  https://www.gnu.org/licenses/gpl-3.0.en.html
+*/
+
 namespace RedePay;
 
 use \RedePay\Utils\Client;
@@ -6,45 +11,45 @@ use \RedePay\Transaction\TransactionHandler;
 use \RedePay\Order\OrderHandler;
 
 class RedePay {
-	/**
-	 * @param Client
-	 */
-	private $client;
+    /**
+     * @param Client
+     */
+    private $client;
 
-	/**
-	 * @param TransactionHandler
-	 */
-	private $transactionHandler;
+    /**
+     * @param TransactionHandler
+     */
+    private $transactionHandler;
 
-	/**
-	 * @param OrderHandler
-	 */
-	private $orderHandler;
+    /**
+     * @param OrderHandler
+     */
+    private $orderHandler;
 
-	/**
-	 * @param String
-	 */
-	public function __construct($apiKey) {
-		$this->client = new Client($apiKey);
-	}
+    /**
+     * @param String
+     */
+    public function __construct($apiKey) {
+        $this->client = new Client($apiKey);
+    }
 
-	/**
-	 * @return TransactionHandler
-	 */
-	public function transaction() {
-		if (!$this->transactionHandler instanceof TransactionHandler) {
-			$this->transactionHandler = new TransactionHandler($this->client);
-		}
-		return $this->transactionHandler;
-	}
+    /**
+     * @return TransactionHandler
+     */
+    public function transaction() {
+        if (!$this->transactionHandler instanceof TransactionHandler) {
+            $this->transactionHandler = new TransactionHandler($this->client);
+        }
+        return $this->transactionHandler;
+    }
 
-	/**
-	 * @return OrderHandler
-	 */
-	public function order() {
-		if (!$this->orderHandler instanceof OrderHandler) {
-			$this->orderHandler = new OrderHandler($this->client);
-		}
-		return $this->orderHandler;
-	}
+    /**
+     * @return OrderHandler
+     */
+    public function order() {
+        if (!$this->orderHandler instanceof OrderHandler) {
+            $this->orderHandler = new OrderHandler($this->client);
+        }
+        return $this->orderHandler;
+    }
 }

@@ -1,88 +1,93 @@
 <?php
+/**
+*  @author   Marjoel Moreira [marjoel@marjoel.com]
+*  @license  https://www.gnu.org/licenses/gpl-3.0.en.html
+*/
+
 namespace RedePay\Settings;
 
 class Settings {
-	use \RedePay\Utils\Fillable;
+    use \RedePay\Utils\Fillable;
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	private $expiresAt;
+    private $expiresAt;
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	private $maxInstallments;
+    private $maxInstallments;
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	private $attempts;
+    private $attempts;
 
-	/**
-	 * @param ShoppingCartRecovery
+    /**
+     * @param ShoppingCartRecovery
      */
-	private $shoppingCartRecovery;
+    private $shoppingCartRecovery;
 
-	/**
-	 * @param Settings
+    /**
+     * @param Settings
      */
-	public function __construct($data = null) {
-		if(isset($data)) {
-			$this->fill($data);
-		}
-	}
+    public function __construct($data = null) {
+        if(isset($data)) {
+            $this->fill($data);
+        }
+    }
 
-	/**
-	 * @return String
+    /**
+     * @return String
      */
-	public function getExpiresAt() {
-		return $this->expiresAt;
-	}
+    public function getExpiresAt() {
+        return $this->expiresAt;
+    }
 
-	/**
-	 * @return String
+    /**
+     * @return String
      */
-	public function getMaxInstallments() {
-		return $this->maxInstallments;
-	}
+    public function getMaxInstallments() {
+        return $this->maxInstallments;
+    }
 
-	public function getAttempts() {
-		return $this->attempts;
-	}
+    public function getAttempts() {
+        return $this->attempts;
+    }
 
-	/**
-	 * @return String
+    /**
+     * @return String
      */
-	public function getShoppingCartRecovery() {
-		return $this->shoppingCartRecovery;
-	}
+    public function getShoppingCartRecovery() {
+        return $this->shoppingCartRecovery;
+    }
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	public function setExpiresAt($expiresAt) {
-		$this->expiresAt = $expiresAt;
-	}
+    public function setExpiresAt($expiresAt) {
+        $this->expiresAt = $expiresAt;
+    }
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	public function setMaxInstallments($maxInstallments) {
-		$this->maxInstallments = $maxInstallments;
-	}
+    public function setMaxInstallments($maxInstallments) {
+        $this->maxInstallments = $maxInstallments;
+    }
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	public function setAttempts($attempts) {
-		$this->attempts = $attempts;
-	}
+    public function setAttempts($attempts) {
+        $this->attempts = $attempts;
+    }
 
-	/**
-	 * @param ShoppingCartRecovery
+    /**
+     * @param ShoppingCartRecovery
      */
-	public function setShoppingCartRecovery($shoppingCartRecovery) {
-		$this->shoppingCartRecovery = $shoppingCartRecovery;
-	}
+    public function setShoppingCartRecovery($shoppingCartRecovery) {
+        $this->shoppingCartRecovery = $shoppingCartRecovery;
+    }
 }

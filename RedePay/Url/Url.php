@@ -1,53 +1,58 @@
 <?php
+/**
+*  @author   Marjoel Moreira [marjoel@marjoel.com]
+*  @license  https://www.gnu.org/licenses/gpl-3.0.en.html
+*/
+
 namespace RedePay\Url;
 
 class Url {
-	use \RedePay\Utils\Fillable;
+    use \RedePay\Utils\Fillable;
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	private $kind;
+    private $kind;
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	private $url;
+    private $url;
 
-	/**
-	 * @param Url
+    /**
+     * @param Url
      */
-	public function __construct($data = null) {
-		if(isset($data)) {
-			$this->fill($data);
-		}
-	}
+    public function __construct($data = null) {
+        if(isset($data)) {
+            $this->fill($data);
+        }
+    }
 
-	/**
-	 * @return String
+    /**
+     * @return String
      */
-	public function getKind() {
-		return $this->kind;
-	}
+    public function getKind() {
+        return $this->kind;
+    }
 
-	/**
-	 * @return String
+    /**
+     * @return String
      */
-	public function getUrl() {
-		return $this->url;
-	}
+    public function getUrl() {
+        return $this->url;
+    }
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	public function setKind($kind) {
-		$this->kind = $kind;
-	}
+    public function setKind($kind) {
+        $this->kind = $kind;
+    }
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	public function setUrl($url) {
-		$this->url = $url;
-	}
+    public function setUrl($url) {
+        $this->url = $url;
+    }
 }

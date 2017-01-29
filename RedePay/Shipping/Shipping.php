@@ -1,65 +1,70 @@
 <?php
+/**
+*  @author   Marjoel Moreira [marjoel@marjoel.com]
+*  @license  https://www.gnu.org/licenses/gpl-3.0.en.html
+*/
+
 namespace RedePay\Shipping;
 
 class Shipping {
-	use \RedePay\Utils\Fillable;
+    use \RedePay\Utils\Fillable;
 
-	/**
-	 * @param Address
+    /**
+     * @param Address
      */
-	private $address;
+    private $address;
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	private $cost;
+    private $cost;
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	private $trackingNumber;
+    private $trackingNumber;
 
-	/**
-	 * @param Shipping
+    /**
+     * @param Shipping
      */
-	public function __construct($data = null) {
-		if(isset($data)) {
-			$this->fill($data);
-		}
-	}
+    public function __construct($data = null) {
+        if(isset($data)) {
+            $this->fill($data);
+        }
+    }
 
-	/**
-	 * @return Address
+    /**
+     * @return Address
      */
-	public function getAddress() {
-		return $this->address;
-	}
+    public function getAddress() {
+        return $this->address;
+    }
 
-	/**
-	 * @return String
+    /**
+     * @return String
      */
-	public function getCost() {
-		return $this->cost;
-	}
+    public function getCost() {
+        return $this->cost;
+    }
 
-	/**
-	 * @return String
+    /**
+     * @return String
      */
-	public function getTrackingNumber() {
-		return $this->trackingNumber;
-	}
+    public function getTrackingNumber() {
+        return $this->trackingNumber;
+    }
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	public function setAddress($address) {
-		$this->address = $address;
-	}
+    public function setAddress($address) {
+        $this->address = $address;
+    }
 
-	/**
-	 * @param String
+    /**
+     * @param String
      */
-	public function setCost($cost) {
-		$this->cost = $cost;
-	}
+    public function setCost($cost) {
+        $this->cost = $cost;
+    }
 }
