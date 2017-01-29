@@ -8,6 +8,7 @@ namespace RedePay\Phone;
 
 class Phone {
     use \RedePay\Utils\Fillable;
+    use \RedePay\Utils\RemoveMask;
 
     /**
      * @param String
@@ -53,6 +54,6 @@ class Phone {
      * @param String
      */
     public function setNumber($number) {
-        $this->number = $number;
+        $this->number = $this->removeMask($number);
     }
 }

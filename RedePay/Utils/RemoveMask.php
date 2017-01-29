@@ -7,7 +7,11 @@
 namespace RedePay\Utils;
 
 trait RemoveMask {
-    private function removeMask($string) {
-        return preg_replace("/[^0-9]/", "", $string);
+    
+    /**
+     * @param String
+     */
+    private function removeMask($value) {
+        return preg_replace("/[^0-9]/", "", $value);
     }
 }
