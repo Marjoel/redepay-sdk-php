@@ -46,3 +46,4 @@ Você está tendo algum problema com a SDK? [Crie uma issue](https://github.com/
 ### Contribuidores
 
 [Marjoel Moreira](https://www.marjoel.com/ "Marjoel Moreira") (@[MarjoeM](https://www.twitter.com/MarjoelM "Twitter"))
+[Daniel Pavone](https://br.linkedin.com/in/danielpavone "Daniel Pavone")

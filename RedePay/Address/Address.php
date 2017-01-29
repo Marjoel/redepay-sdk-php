@@ -8,6 +8,7 @@ namespace RedePay\Address;
 
 class Address {
     use \RedePay\Utils\Fillable;
+    use \RedePay\Utils\RemoveMask;
 
     /**
      * @param String
@@ -146,7 +147,7 @@ class Address {
      * @param String
      */
     public function setPostalCode($postalCode) {
-        $this->postalCode = $postalCode;
+        $this->postalCode = $this->removeMask($postalCode);
     }
 
     /**
