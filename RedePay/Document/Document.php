@@ -9,6 +9,7 @@ namespace RedePay\Document;
 class Document {
     use \RedePay\Utils\Fillable;
     use \RedePay\Utils\RemoveMask;
+
     /**
      * @param String
      */

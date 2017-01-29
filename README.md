@@ -40,7 +40,7 @@
 
 ## Contribua
 
-Faça um fork do repositório, realize suas alterações e [crie um pull request](https://github.com/Marjoel/redepay-sdk-php/pulls "Clique aqui para criar um pull request").<br>
+Faça um fork do [repositório](https://github.com/Marjoel/redepay-sdk-php "Rede Pay SDK PHP"), realize suas alterações e [crie um pull request](https://github.com/Marjoel/redepay-sdk-php/pulls "Clique aqui para criar um pull request").<br>
 Você está tendo algum problema com a SDK? [Crie uma issue](https://github.com/Marjoel/redepay-sdk-php/issues "Clique aqui para criar uma issue").
 
 ### Contribuidores
