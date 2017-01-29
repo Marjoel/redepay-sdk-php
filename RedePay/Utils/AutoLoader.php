@@ -34,6 +34,7 @@ $mapping = array(
     "RedePay\Utils\Client" => $directory . "/Utils/Client.php",
     "RedePay\Utils\Fillable" => $directory . "/Utils/Fillable.php",
     "RedePay\Utils\DateFormatter" => $directory . "/Utils/DateFormatter.php",
+    "RedePay\Utils\RemoveMask" => $directory . "/Utils/RemoveMask.php",
     "RedePay\Utils\RequestInterface" => $directory . "/Utils/RequestInterface.php",
     "RedePay\Utils\Validation\CpfValidator" => $directory . "/Utils/Validation/CpfValidator.php"
 );
