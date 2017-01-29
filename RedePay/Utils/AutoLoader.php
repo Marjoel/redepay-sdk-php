@@ -35,6 +35,7 @@ $mapping = array(
     "RedePay\Utils\Fillable" => $directory . "/Utils/Fillable.php",
     "RedePay\Utils\DateFormatter" => $directory . "/Utils/DateFormatter.php",
     "RedePay\Utils\RequestInterface" => $directory . "/Utils/RequestInterface.php",
+    "RedePay\Utils\RemoveMask" => $directory . "/Utils/RemoveMask.php",
 );
 
 spl_autoload_register(function ($class) use ($mapping) {
