@@ -8,7 +8,7 @@ namespace RedePay\Document;
 
 class Document {
     use \RedePay\Utils\Fillable;
-    use \RedePay\Utils\RemoveMask;
+    use \RedePay\Utils\Validation\CpfValidator;
 
     /**
      * @param String
@@ -54,6 +54,11 @@ class Document {
      * @param String
      */
     public function setNumber($number) {
-        $this->number = $this->removeMask($number);
+        if($this->cpfValidator($number)) {
+            $this->number = $this->removeMask($number);
+        }
+        else {
+            throw new \InvalidArgumentException($number ." is not a valid cpf value");
+        }
     }
 }

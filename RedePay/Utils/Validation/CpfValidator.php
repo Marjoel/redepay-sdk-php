@@ -7,25 +7,25 @@
 namespace RedePay\Utils\Validation;
 
 trait CpfValidator {
-    public function cpfValidator($cpf) {
-        $regEx = "/^(0{11}|1{11}|2{11}|3{11}|4{11}|5{11}|6{11}|7{11}|8{11}|9{11})$/";
-        $sum = 0;
-        $init = 0;
-        $i = 0;
+    use \RedePay\Utils\RemoveMask;
 
-        if (((!$cpf) || (strlen($cpf) != 11) || (preg_match($regEx, $cpf)))) {
+    public function cpfValidator($value) {
+        $value = $this->removeMask($value);
+        $regEx = "/^(0{11}|1{11}|2{11}|3{11}|4{11}|5{11}|6{11}|7{11}|8{11}|9{11})$/";
+
+        if (((!$value) || (strlen($value) != 11) || (preg_match($regEx, $value)))) {
             return false;
         }
-        return $this->digitValidator($cpf, 9) && $this->digitValidator($cpf, 10);
+        return ($this->digitValidator($value, 9) && $this->digitValidator($value, 10));
     }
 
-    private function digitValidator($cpf, $digit) {
-        $sum = 0;
+    private function digitValidator($value, $digit) {
         $init = $digit - 9;
+        $sum = 0;
 
         for ($i = 0; $i < 9; $i++) {
-            $sum += ($cpf{$i + $init}) * ($i + 1);
+            $sum += ($value{$i + $init}) * ($i + 1);
         }
-        return ((($sum % 11) % 10) == $cpf{$digit});
+        return ((($sum % 11) % 10) == $value{$digit});
     }
 }

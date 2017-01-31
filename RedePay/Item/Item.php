@@ -20,22 +20,22 @@ class Item {
     private $description;
 
     /**
-     * @param String
+     * @param integer
      */
     private $amount;
 
     /**
-     * @param String
+     * @param integer
      */
     private $quantity;
 
     /**
-     * @param String
+     * @param integer
      */
     private $freight;
 
     /**
-     * @param String
+     * @param integer
      */
     private $discount;
 
@@ -63,28 +63,28 @@ class Item {
     }
 
     /**
-     * @return String
+     * @return integer
      */
     public function getAmount() {
         return $this->amount;
     }
 
     /**
-     * @return String
+     * @return integer
      */
     public function getQuantity() {
         return $this->quantity;
     }
 
     /**
-     * @return String
+     * @return integer
      */
     public function getFreight() {
         return $this->freight;
     }
 
     /**
-     * @return String
+     * @return integer
      */
     public function getDiscount() {
         return $this->discount;
@@ -105,30 +105,50 @@ class Item {
     }
 
     /**
-     * @param String
+     * @param integer
      */
     public function setAmount($amount) {
-        $this->amount = $amount;
+        if(is_numeric($amount)) {
+           $this->amount = $amount; 
+        }
+        else {
+            throw new \InvalidArgumentException($amount ." is not a valid number value");
+        }
     }
 
     /**
-     * @param String
+     * @param integer
      */
     public function setQuantity($quantity) {
-        $this->quantity = $quantity;
+        if(is_numeric($quantity)) {
+           $this->quantity = $quantity; 
+        }
+        else {
+            throw new \InvalidArgumentException($quantity ." is not a valid number value");
+        }
     }
 
     /**
-     * @param String
+     * @param integer
      */
     public function setFreight($freight) {
-        $this->freight = $freight;
+        if(is_numeric($freight)) {
+           $this->freight = $freight; 
+        }
+        else {
+            throw new \InvalidArgumentException($freight ." is not a valid number value");
+        }
     }
 
     /**
-     * @param String
+     * @param integer
      */
     public function setDiscount($discount) {
-        $this->discount = $discount;
+        if(is_numeric($discount)) {
+           $this->discount = $discount; 
+        }
+        else {
+            throw new \InvalidArgumentException($discount ." is not a valid number value");
+        }
     }
 }
