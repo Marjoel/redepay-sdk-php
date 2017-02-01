@@ -9,6 +9,7 @@ namespace RedePay;
 use \RedePay\Utils\Client;
 use \RedePay\Transaction\TransactionHandler;
 use \RedePay\Order\OrderHandler;
+use \RedePay\Tracking\TrackingHandler;
 
 class RedePay {
     /**
@@ -25,6 +26,11 @@ class RedePay {
      * @param OrderHandler
      */
     private $orderHandler;
+
+    /**
+     * @param TrackingHandler
+     */
+    private $trackingHandler;
 
     /**
      * @param String
@@ -51,5 +57,15 @@ class RedePay {
             $this->orderHandler = new OrderHandler($this->client);
         }
         return $this->orderHandler;
+    }
+
+    /**
+     * @return TrackingHandler
+     */
+    public function tracking() {
+        if (!$this->trackingHandler instanceof TrackingHandler) {
+            $this->trackingHandler = new TrackingHandler($this->client);
+        }
+        return $this->trackingHandler;
     }
 }

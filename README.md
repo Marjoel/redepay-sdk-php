@@ -32,7 +32,7 @@
 
 | Versão | Notas |
 | ------ | ----- |
-| 1.0    | Integração com as APIs de criação de pedido, consulta de pedido e consulta de transação. |
+| 1.0    | Integração com as APIs de criação e consulta de pedido, consulta de transação, e inclusão e exclusão de códigos de rastreio. |
 
 ## To dos
 
