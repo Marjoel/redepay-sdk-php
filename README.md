@@ -16,7 +16,8 @@
 * Recursos
     * [Criação de Pedido](https://github.com/Marjoel/redepay-sdk-php/wiki/Cria%C3%A7%C3%A3o-de-Pedido)
     * [Consulta de Pedido](https://github.com/Marjoel/redepay-sdk-php/wiki/Consulta-de-Pedido)
-    * [Consulta de Transação](https://github.com/Marjoel/redepay-sdk-php/wiki/Consulta-de-Transa%C3%A7%C3%A3o)
+    * [Inclusão de Código de Rastreio](https://github.com/Marjoel/redepay-sdk-php/wiki/Inclusão-de-Código-de-Rastreio)
+    * [Exclusão de Código de Rastreio](https://github.com/Marjoel/redepay-sdk-php/wiki/Exclusão-de-Código-de-Rastreio)
 * Ajuda
     * [Address](https://github.com/Marjoel/redepay-sdk-php/wiki/Address)
     * [Customer](https://github.com/Marjoel/redepay-sdk-php/wiki/Customer)
@@ -26,6 +27,7 @@
     * [Settings](https://github.com/Marjoel/redepay-sdk-php/wiki/Settings)
     * [Shipping](https://github.com/Marjoel/redepay-sdk-php/wiki/Shipping)
     * [ShoppingCartRecovery](https://github.com/Marjoel/redepay-sdk-php/wiki/ShoppingCartRecovery)
+    * [Tracking](https://github.com/Marjoel/redepay-sdk-php/wiki/Tracking)
     * [Url](https://github.com/Marjoel/redepay-sdk-php/wiki/Url)
 
 ### Notas
