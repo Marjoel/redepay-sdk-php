@@ -1,5 +1,5 @@
 {
-    "name": "Marjoel/redepay-sdk-php",
+    "name": "marjoel/redepay-sdk-php",
     "description": "Rede Pay SDK for PHP projects",
     "keywords": ["redepay", "rede", "userede", "pagamento", "payment", "sdk"],
     "license": "GPL-3.0",
