@@ -34,6 +34,7 @@
 
 | Versão | Notas |
 | ------ | ----- |
+| 1.1    | Adicionando o arquivo composer.json. |
 | 1.0    | Integração com as APIs de criação e consulta de pedido, consulta de transação, e inclusão e exclusão de códigos de rastreio. |
 
 ## To dos
@@ -50,3 +51,5 @@ Você está tendo algum problema com a SDK? [Crie uma issue](https://github.com/
 [Marjoel Moreira](https://www.marjoel.com/ "Marjoel Moreira") (@[MarjoeM](https://www.twitter.com/MarjoelM "Twitter"))
 
 [Daniel Pavone](https://br.linkedin.com/in/danielpavone "Daniel Pavone")
+
+[Lucas Mendes](https://www.linkedin.com/in/devsdmf "Lucas Mendes")  (@[devsdmf](https://twitter.com/@devsdmf "Twitter"))
