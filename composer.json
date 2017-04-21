@@ -1,6 +1,6 @@
 {
-    "name": "userede/redepay-sdk-php",
-    "description": "UseRede's RedePay SDK for PHP projects",
+    "name": "Marjoel/redepay-sdk-php",
+    "description": "Rede Pay SDK for PHP projects",
     "keywords": ["redepay", "rede", "userede", "pagamento", "payment", "sdk"],
     "license": "GPL-3.0",
     "authors": [
