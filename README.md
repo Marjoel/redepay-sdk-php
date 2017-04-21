@@ -51,4 +51,4 @@ Você está tendo algum problema com a SDK? [Crie uma issue](https://github.com/
 
 [Daniel Pavone](https://br.linkedin.com/in/danielpavone "Daniel Pavone")
 
-[Lucas Mendes](https://www.linkedin.com/in/devsdmf "Lucas Mendes")  (@[devsdmf](https://twitter.com/@devsdmf "Twitter"))
+[Lucas Mendes](https://www.linkedin.com/in/devsdmf "Lucas Mendes")  (@[devsdmf](https://twitter.com/devsdmf "Twitter"))
