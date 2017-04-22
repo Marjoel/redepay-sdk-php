@@ -1,11 +1,13 @@
 <?php
-/**
-*  @author   Marjoel Moreira [marjoel@marjoel.com]
-*  @license  https://www.gnu.org/licenses/gpl-3.0.en.html
-*/
 
 namespace RedePay\Utils;
 
+/**
+ * Class CaseConverter
+ *
+ * @author Marjoel Moreira <marjoel@marjoel.com>
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
 trait CaseConverter {
     public function toUpperCase($sentence) {
         return preg_replace_callback("/(?:^|_)([a-zA-Z])/", function ($word) {

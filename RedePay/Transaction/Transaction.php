@@ -1,14 +1,16 @@
 <?php
-/**
-*  @author   Marjoel Moreira [marjoel@marjoel.com]
-*  @license  https://www.gnu.org/licenses/gpl-3.0.en.html
-*/
 
 namespace RedePay\Transaction;
 
 use \RedePay\Payment\Payment;
 use \RedePay\Customer\Customer;
 
+/**
+ * Class Transaction
+ *
+ * @author Marjoel Moreira <marjoel@marjoel.com>
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
 class Transaction {
     use \RedePay\Utils\Fillable;
 

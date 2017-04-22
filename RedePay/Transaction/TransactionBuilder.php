@@ -1,8 +1,4 @@
 <?php
-/**
-*  @author   Marjoel Moreira [marjoel@marjoel.com]
-*  @license  https://www.gnu.org/licenses/gpl-3.0.en.html
-*/
 
 namespace RedePay\Transaction;
 
@@ -13,6 +9,12 @@ use \RedePay\Item\Item;
 use \RedePay\History\History;
 use \RedePay\Transaction\Transaction;
 
+/**
+ * Class TransactionBuilder
+ *
+ * @author Marjoel Moreira <marjoel@marjoel.com>
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
 trait TransactionBuilder {
     use \RedePay\Shipping\ShippingBuilder;
     

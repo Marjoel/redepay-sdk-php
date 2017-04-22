@@ -1,11 +1,13 @@
 <?php
-/**
-*  @author   Marjoel Moreira [marjoel@marjoel.com]
-*  @license  https://www.gnu.org/licenses/gpl-3.0.en.html
-*/
 
 namespace RedePay\Document;
 
+/**
+ * Class Document
+ *
+ * @author Marjoel Moreira <marjoel@marjoel.com>
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
 class Document {
     use \RedePay\Utils\Fillable;
     use \RedePay\Utils\Validation\CpfValidator;

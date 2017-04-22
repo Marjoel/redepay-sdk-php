@@ -1,11 +1,13 @@
 <?php
-/**
-*  @author   Marjoel Moreira [marjoel@marjoel.com]
-*  @license  https://www.gnu.org/licenses/gpl-3.0.en.html
-*/
 
 namespace RedePay\Utils;
 
+/**
+ * Interface RequestInterface
+ *
+ * @author Marjoel Moreira <marjoel@marjoel.com>
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
 interface RequestInterface {
     const HTTP_GET = "GET";
     const HTTP_POST = "POST";

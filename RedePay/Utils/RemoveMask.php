@@ -1,11 +1,13 @@
 <?php
-/**
-*  @author   Daniel Pavone [danielpavone@gmail.com]
-*  @license  https://www.gnu.org/licenses/gpl-3.0.en.html
-*/
 
 namespace RedePay\Utils;
 
+/**
+ * Class RemoveMask
+ *
+ * @author Marjoel Moreira <marjoel@marjoel.com>
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
 trait RemoveMask {
     
     /**

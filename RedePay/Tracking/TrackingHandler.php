@@ -1,8 +1,4 @@
 <?php
-/**
-*  @author   Marjoel Moreira [marjoel@marjoel.com]
-*  @license  https://www.gnu.org/licenses/gpl-3.0.en.html
-*/
 
 namespace RedePay\Tracking;
 
@@ -11,6 +7,12 @@ use \RedePay\Utils\AbstractHandler;
 use \RedePay\Tracking\Request\TrackingCreate;
 use \RedePay\Tracking\Request\TrackingDelete;
 
+/**
+ * Class TrackingHandler
+ *
+ * @author Marjoel Moreira <marjoel@marjoel.com>
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
 class TrackingHandler extends AbstractHandler {
     use TrackingBuilder;
 

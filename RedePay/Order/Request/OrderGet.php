@@ -1,8 +1,15 @@
 <?php
+
 namespace RedePay\Order\Request;
 
 use \RedePay\Utils\RequestInterface;
 
+/**
+ * Class OrderGet
+ *
+ * @author Marjoel Moreira <marjoel@marjoel.com>
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
 class OrderGet implements RequestInterface {
 	private $orderId;
 

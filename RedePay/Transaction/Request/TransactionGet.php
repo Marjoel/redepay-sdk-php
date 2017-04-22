@@ -1,13 +1,15 @@
 <?php
-/**
-*  @author   Marjoel Moreira [marjoel@marjoel.com]
-*  @license  https://www.gnu.org/licenses/gpl-3.0.en.html
-*/
 
 namespace RedePay\Transaction\Request;
 
 use \RedePay\Utils\RequestInterface;
 
+/**
+ * Class TransactionGet
+ *
+ * @author Marjoel Moreira <marjoel@marjoel.com>
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
 class TransactionGet implements RequestInterface {
     private $transactionId;
 

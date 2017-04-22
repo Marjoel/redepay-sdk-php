@@ -1,8 +1,4 @@
 <?php
-/**
-*  @author   Marjoel Moreira [marjoel@marjoel.com]
-*  @license  https://www.gnu.org/licenses/gpl-3.0.en.html
-*/
 
 namespace RedePay;
 
@@ -11,6 +7,12 @@ use \RedePay\Transaction\TransactionHandler;
 use \RedePay\Order\OrderHandler;
 use \RedePay\Tracking\TrackingHandler;
 
+/**
+ * Class RedePay
+ *
+ * @author Marjoel Moreira <marjoel@marjoel.com>
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
 class RedePay {
     /**
      * @param Client

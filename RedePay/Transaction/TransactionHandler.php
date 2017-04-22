@@ -1,8 +1,4 @@
 <?php
-/**
-*  @author   Marjoel Moreira [marjoel@marjoel.com]
-*  @license  https://www.gnu.org/licenses/gpl-3.0.en.html
-*/
 
 namespace RedePay\Transaction;
 
@@ -10,6 +6,12 @@ use \RedePay\Utils\AbstractHandler;
 use \RedePay\Utils\Client;
 use \RedePay\Transaction\Request\TransactionGet;
 
+/**
+ * Class TransactionHandler
+ *
+ * @author Marjoel Moreira <marjoel@marjoel.com>
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
 class TransactionHandler extends AbstractHandler {
     use \RedePay\Transaction\TransactionBuilder;
 

@@ -1,8 +1,15 @@
 <?php
+
 namespace RedePay\Tracking\Request;
 
 use \RedePay\Utils\RequestInterface;
 
+/**
+ * Class TrackingCreate
+ *
+ * @author Marjoel Moreira <marjoel@marjoel.com>
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
 class TrackingCreate implements RequestInterface {
 	private $tracking;
 	private $transactionId;

@@ -1,8 +1,4 @@
 <?php
-/**
-*  @author   Marjoel Moreira [marjoel@marjoel.com]
-*  @license  https://www.gnu.org/licenses/gpl-3.0.en.html
-*/
 
 namespace RedePay\Order;
 
@@ -12,6 +8,12 @@ use \RedePay\Item\Item;
 use \RedePay\History\History;
 use \RedePay\Order\Order;
 
+/**
+ * Class OrderBuilder
+ *
+ * @author Marjoel Moreira <marjoel@marjoel.com>
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
 trait OrderBuilder {
     use \RedePay\Shipping\ShippingBuilder;
 
