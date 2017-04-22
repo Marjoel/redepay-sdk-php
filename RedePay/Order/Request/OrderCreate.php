@@ -12,7 +12,7 @@ class OrderCreate implements RequestInterface {
 
 	public function getPayload() {
 		$reference = $this->order->getReference();
-		$discount = $this->order->getDiscount();
+		$discount = (int)number_format($this->order->getDiscount(),2,'','');
 		$settings = $this->handleSettings($this->order);
 		$customer = $this->handleCustomer($this->order);
 		$shipping = $this->handleShipping($this->order);
@@ -110,7 +110,7 @@ class OrderCreate implements RequestInterface {
 	}
 
 	private function handleShipping($order) {
-        $cost = $order->getShipping()->getCost();
+        $cost = (int)number_format($order->getShipping()->getCost(),2,'','');
         $address = $this->handleAddress($order);
 
         $parameters = array(
@@ -133,11 +133,11 @@ class OrderCreate implements RequestInterface {
 		foreach ($order->getItems() as $key => $item) {
 			$items[$key] = array(
 				"id" => $item->getId(),
-				"amount" => $item->getAmount(),
+				"amount" => (int)number_format($item->getAmount(),2,'',''),
 				"quantity" => $item->getQuantity(),
-				"discount" => $item->getDiscount(),
+				"discount" => (int)number_format($item->getDiscount(),2,'',''),
 				"description" => $item->getDescription(),
-				"freight" => $item->getFreight()
+				"freight" => (int)number_format($item->getFreight(),2,'',''),
 			);
 
 			if(!$item->getDiscount() || $item->getDiscount() == 0) {
