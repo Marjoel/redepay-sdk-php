@@ -1,56 +1,82 @@
 <?php
-/**
-*  @author   Marjoel Moreira [marjoel@marjoel.com]
-*  @license  https://www.gnu.org/licenses/gpl-3.0.en.html
-*/
 
 namespace RedePay\Payment;
 
-class Payment {
-    use \RedePay\Utils\Fillable;
+use RedePay\Utils\Fillable;
+
+/**
+ * Class Payment
+ *
+ * @author Marjoel Moreira <marjoel@marjoel.com>
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
+class Payment
+{
+    /**
+     * Traits
+     */
+    use Fillable;
 
     /**
-     * @param String
+     * The method
+     *
+     * @var string
      */
     private $method;
 
     /**
-     * @param String
+     * The card brand
+     *
+     * @var string
      */
     private $cardBrand;
 
     /**
-     * @param String
+     * The installments number
+     *
+     * @var int
      */
     private $installments;
 
     /**
-     * @param Payment
+     * Payment constructor.
+     *
+     * @param array|null $data The default data to be filled in the current Payment object
      */
-    public function __construct($data = null) {
-        if(isset($data)) {
+    public function __construct(array $data = null)
+    {
+        if (isset($data)) {
             $this->fill($data);
         }
     }
 
     /**
-     * @param String
+     * Gets the method
+     *
+     * @return string
      */
-    public function getMethod() {
+    public function getMethod()
+    {
         return $this->method;
     }
 
     /**
-     * @param String
+     * Gets the card brand
+     *
+     * @return string
      */
-    public function getCardBrand() {
+    public function getCardBrand()
+    {
         return $this->cardBrand;
     }
 
     /**
-     * @return String
+     * Gets the installments number
+     * w
+     * @return int
      */
-    public function getInstallments() {
+    public function getInstallments()
+    {
         return $this->installments;
     }
 }

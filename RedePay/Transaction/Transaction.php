@@ -1,180 +1,257 @@
 <?php
-/**
-*  @author   Marjoel Moreira [marjoel@marjoel.com]
-*  @license  https://www.gnu.org/licenses/gpl-3.0.en.html
-*/
 
 namespace RedePay\Transaction;
 
-use \RedePay\Payment\Payment;
-use \RedePay\Customer\Customer;
+use RedePay\Customer\Customer;
+use RedePay\History\History;
+use RedePay\Item\Item;
+use RedePay\Payment\Payment;
+use RedePay\Shipping\Shipping;
+use RedePay\Utils\Fillable;
 
-class Transaction {
-    use \RedePay\Utils\Fillable;
+/**
+ * Class Transaction
+ *
+ * @author Marjoel Moreira <marjoel@marjoel.com>
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
+class Transaction
+{
+    /**
+     * Traits
+     */
+    use Fillable;
 
     /**
-     * @param String
+     * The transaction ID
+     *
+     * @var string
      */
     private $id;
 
     /**
-     * @param String
+     * The transaction reference
+     *
+     * @var string
      */
     private $reference;
 
     /**
-     * @param String
+     * The transaction status
+     *
+     * @var string
      */
     private $status;
 
     /**
-     * @param String
+     * The transaction amount
+     *
+     * @var float
      */
     private $amount;
 
     /**
-     * @param String
+     * The transaction discount amount
+     *
+     * @var float
      */
     private $discount;
 
     /**
-     * @param String
+     * The transaction creation date
+     *
+     * @var string
      */
     private $creationDate;
 
     /**
-     * @param Customer
+     * The Customer object
+     *
+     * @var Customer
      */
     private $customer;
 
     /**
-     * @param Payment
+     * The Payment object
+     *
+     * @var Payment
      */
     private $payment;
 
     /**
-     * @param Shipping
+     * The Shipping object
+     *
+     * @var Shipping
      */
     private $shipping;
 
     /**
-     * @param Item[]
+     * The items array
+     *
+     * @var Item[]
      */
     private $items;
 
     /**
-     * @param History[]
+     * The transaction status history
+     *
+     * @var History[]
      */
     private $statusHistory;
 
     /**
-     * @param String
+     * The payment method
+     *
+     * @var string
      */
     private $paymentMethod;
 
     /**
-     * @param String
+     * The card brand
+     *
+     * @var string
      */
     private $cardBrand;
 
     /**
-     * @param String
+     * The installments number
+     *
+     * @var int
      */
     private $installments;
 
     /**
-     * @param String
+     * The customer name
+     *
+     * @var string
      */
     private $customerName;
 
     /**
-     * @param String
+     * The customer email
+     * @var string
      */
     private $customerEmail;
 
     /**
-     * @param Transaction
+     * Transaction constructor.
+     *
+     * @param array|null $data The default data to be filled in the current Transaction object
      */
-    public function __construct($data = null) {
-        if(isset($data)) {
+    public function __construct(array $data = null)
+    {
+        if (isset($data)) {
             $this->fill($data);
         }
     }
 
     /**
-     * @return String
+     * Gets the transaction ID
+     *
+     * @return string
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
     /**
-     * @return String
+     * Gets the transaction reference
+     *
+     * @return string
      */
-    public function getReference() {
+    public function getReference()
+    {
         return $this->reference;
     }
 
     /**
-     * @return String
+     * Gets the transaction status
+     *
+     * @return string
      */
-    public function getStatus() {
+    public function getStatus()
+    {
         return $this->status;
     }
 
     /**
-     * @return String
+     * Gets the transaction total amount
+     *
+     * @return float
      */
-    public function getAmount() {
+    public function getAmount()
+    {
         return $this->amount;
     }
 
     /**
-     * @return String
+     * Gets the transaction discount amount
+     *
+     * @return float
      */
-    public function getDiscount() {
+    public function getDiscount()
+    {
         return $this->discount;
     }
 
     /**
-     * @return String
+     * Gets the transaction creation date
+     *
+     * @return string
      */
-    public function getCreationDate() {
+    public function getCreationDate()
+    {
         return $this->creationDate;
     }
 
     /**
+     * Gets the Customer
+     *
      * @return Customer
      */
-    public function getCustomer() {
+    public function getCustomer()
+    {
         return $this->customer;
     }
 
     /**
+     * Gets the Payment
+     *
      * @return Payment
      */
-    public function getPayment() {
+    public function getPayment()
+    {
         return new $this->payment;
     }
 
     /**
+     * Gets the Shipping
+     *
      * @return Shipping
      */
-    public function getShipping() {
+    public function getShipping()
+    {
         return $this->shipping;
     }
 
     /**
+     * Gets the items array
+     *
      * @return Item[]
      */
-    public function getItems() {
+    public function getItems()
+    {
         return $this->items;
     }
 
     /**
-     * @return History
+     * Gets the transaction status history
+     *
+     * @return History[]
      */
-    public function getStatusHistory() {
+    public function getStatusHistory()
+    {
         return $this->statusHistory;
     }
 }

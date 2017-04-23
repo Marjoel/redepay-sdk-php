@@ -1,58 +1,99 @@
 <?php
-/**
-*  @author   Marjoel Moreira [marjoel@marjoel.com]
-*  @license  https://www.gnu.org/licenses/gpl-3.0.en.html
-*/
 
 namespace RedePay\Url;
 
-class Url {
-    use \RedePay\Utils\Fillable;
+use RedePay\Utils\Fillable;
+
+/**
+ * Class Url
+ *
+ * @author Marjoel Moreira <marjoel@marjoel.com>
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
+class Url
+{
+    /**
+     * Traits
+     */
+    use Fillable;
 
     /**
-     * @param String
+     * Enum constants
+     */
+    const TYPE_CANCEL             = 'cancel';
+    const TYPE_NOTIFICATION       = 'notification';
+    const TYPE_ORDER_NOTIFICATION = 'orderNotification';
+    const TYPE_REDIRECT           = 'redirect';
+
+    /**
+     * The URL type
+     *
+     * @var string
      */
     private $kind;
 
     /**
-     * @param String
+     * The URL
+     *
+     * @var string
      */
     private $url;
 
     /**
-     * @param Url
+     * Url constructor.
+     *
+     * @param array|null $data The default data to be filled in the current Url object
      */
-    public function __construct($data = null) {
-        if(isset($data)) {
+    public function __construct(array $data = null)
+    {
+        if (isset($data)) {
             $this->fill($data);
         }
     }
 
     /**
-     * @return String
+     * Sets the type
+     *
+     * @param string $kind
+     * @return Url
      */
-    public function getKind() {
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+
+        return $this;
+    }
+
+    /**
+     * Gets the type
+     *
+     * @return string
+     */
+    public function getKind()
+    {
         return $this->kind;
     }
 
     /**
-     * @return String
+     * Sets the url
+     *
+     * @param string $url
+     * @return Url
      */
-    public function getUrl() {
-        return $this->url;
-    }
-
-    /**
-     * @param String
-     */
-    public function setKind($kind) {
-        $this->kind = $kind;
-    }
-
-    /**
-     * @param String
-     */
-    public function setUrl($url) {
+    public function setUrl($url)
+    {
         $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets the url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
     }
 }

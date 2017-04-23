@@ -1,247 +1,384 @@
 <?php
-/**
-*  @author   Marjoel Moreira [marjoel@marjoel.com]
-*  @license  https://www.gnu.org/licenses/gpl-3.0.en.html
-*/
 
 namespace RedePay\Order;
 
-class Order {
-    use \RedePay\Utils\Fillable;
+use RedePay\Customer\Customer;
+use RedePay\History\History;
+use RedePay\Item\Item;
+use RedePay\Settings\Settings;
+use RedePay\Shipping\Shipping;
+use RedePay\Url\Url;
+use RedePay\Utils\Fillable;
+
+/**
+ * Class Order
+ *
+ * @author Marjoel Moreira <marjoel@marjoel.com>
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
+class Order
+{
+    /**
+     * Traits
+     */
+    use Fillable;
 
     /**
-     * @param String
+     * The order ID
+     *
+     * @var string
      */
     private $id;
 
     /**
-     * @param String
+     * Alias to $id
+     *
+     * @var string
      */
     private $orderId;
 
     /**
-     * @param String
+     * The order reference
+     *
+     * @var string
      */
     private $reference;
 
     /**
-     * @param String
+     * The order status
+     *
+     * @var string
      */
     private $status;
 
     /**
-     * @param String
+     * The order total amount
+     *
+     * @var string
      */
     private $amount;
 
     /**
-     * @param String
+     * The order creation date
+     *
+     * @var string
      */
     private $creationDate;
 
     /**
-     * @param String
+     * Alias to $creationDate
+     *
+     * @var string
      */
     private $createdAt;
 
     /**
-     * @param String
+     * The order discount amount
+     *
+     * @var float|int
      */
     private $discount;
 
     /**
-     * @param Customer
+     * The Customer
+     *
+     * @var Customer
      */
     private $customer;
 
     /**
-     * @param Shipping
+     * The Shipping
+     *
+     * @var Shipping
      */
     private $shipping;
 
     /**
-     * @param Item[]
+     * The order Items
+     *
+     * @var Item[]
      */
     private $items;
 
     /**
-     * @param History[]
+     * The order status history
+     *
+     * @var History[]
      */
     private $statusHistory;
 
     /**
-     * @param History[]
+     * The order transaction history
+     *
+     * @var History[]
      */
     private $transactionHistory;
 
     /**
-     * @param History[]
+     * The order reversal history
+     *
+     * @var History[]
      */
     private $reversalHistory;
 
     /**
-     * @param Settings
+     * The order settings
+     *
+     * @var Settings
      */
     private $settings;
 
     /**
-     * @param Url[]
+     * The order URLs
+     *
+     * @var Url[]
      */
     private $urls;
 
     /**
-     * @param Order
+     * Order constructor.
+     *
+     * @param array|null $data The default data to be filled in the current Order object
      */
-    public function __construct($data = null) {
-        if(isset($data)) {
+    public function __construct(array $data = null)
+    {
+        if (isset($data)) {
             $this->fill($data);
         }
     }
 
     /**
-     * @return String
+     * Gets the ID
+     *
+     * @return string
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
     /**
-     * @return String
+     * Sets the reference
+     *
+     * @param string $reference
+     * @return Order
      */
-    public function getReference() {
+    public function setReference($reference)
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
+
+    /**
+     * Gets the reference
+     *
+     * @return string
+     */
+    public function getReference()
+    {
         return $this->reference;
     }
 
     /**
-     * @return String
+     * Gets the status
+     *
+     * @return string
      */
-    public function getStatus() {
+    public function getStatus()
+    {
         return $this->status;
     }
 
     /**
-     * @return String
+     * Gets the amount
+     *
+     * @return string
      */
-    public function getAmount() {
+    public function getAmount()
+    {
         return $this->amount;
     }
 
     /**
-     * @return String
+     * Gets the creation date
+     *
+     * @return string
      */
-    public function getCreationDate() {
+    public function getCreationDate()
+    {
         return $this->creationDate;
     }
 
     /**
-     * @return String
+     * Sets the discount amount
+     *
+     * @param float|int $discount
+     * @return Order
      */
-    public function getDiscount() {
+    public function setDiscount($discount)
+    {
+        if (is_numeric($discount)) {
+            $this->discount = $discount;
+        } else {
+            throw new \InvalidArgumentException($discount . ' is not a valid number value');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Gets the discount amount
+     *
+     * @return float|int
+     */
+    public function getDiscount()
+    {
         return $this->discount;
     }
 
     /**
+     * Sets the Customer
+     *
+     * @param Customer $customer
+     * @return Order
+     */
+    public function setCustomer(Customer $customer)
+    {
+        $this->customer = $customer;
+
+        return $this;
+    }
+
+    /**
+     * Gets the Customer
+     *
      * @return Customer
      */
-    public function getCustomer() {
+    public function getCustomer()
+    {
         return $this->customer;
     }
 
     /**
+     * Sets the Shipping
+     *
+     * @param Shipping $shipping
+     * @return Order
+     */
+    public function setShipping(Shipping $shipping)
+    {
+        $this->shipping = $shipping;
+
+        return $this;
+    }
+
+    /**
+     * Gets the Shipping
+     *
      * @return Shipping
      */
-    public function getShipping() {
+    public function getShipping()
+    {
         return $this->shipping;
     }
 
     /**
-     * @return Items[]
+     * Sets the items array
+     *
+     * @param array $items
+     * @return Order
      */
-    public function getItems() {
+    public function setItems(array $items)
+    {
+        $this->items = $items;
+
+        return $this;
+    }
+
+    /**
+     * Gets the items array
+     *
+     * @return Item[]
+     */
+    public function getItems()
+    {
         return $this->items;
     }
 
     /**
+     * Gets the status history
+     *
      * @return History[]
      */
-    public function getStatusHistory() {
+    public function getStatusHistory()
+    {
         return $this->statusHistory;
     }
 
     /**
+     * Gets the transaction history
+     *
      * @return History[]
      */
-    public function getTransactionHistory() {
+    public function getTransactionHistory()
+    {
         return $this->transactionHistory;
     }
 
     /**
+     * Gets the reversal history
+     *
      * @return History[]
      */
-    public function getReversalHistory() {
+    public function getReversalHistory()
+    {
         return $this->reversalHistory;
     }
 
     /**
+     * Sets the Settings
+     *
+     * @param Settings $settings
+     * @return Order
+     */
+    public function setSettings(Settings $settings)
+    {
+        $this->settings = $settings;
+
+        return $this;
+    }
+
+    /**
+     * Gets the Settings
+     *
      * @return Settings
      */
-    public function getSettings() {
+    public function getSettings()
+    {
         return $this->settings;
     }
 
     /**
+     * Sets the urls array
+     *
+     * @param array $urls
+     * @return Order
+     */
+    public function setUrls(array $urls)
+    {
+        $this->urls = $urls;
+
+        return $this;
+    }
+
+    /**
+     * Gets the urls array
+     *
      * @return Url[]
      */
-    public function getUrls() {
+    public function getUrls()
+    {
         return $this->urls;
-    }
-
-    /**
-     * @param String
-     */
-    public function setReference($reference) {
-        $this->reference = $reference;
-    }
-
-    /**
-     * @param Customer
-     */
-    public function setCustomer($customer) {
-        $this->customer = $customer;
-    }
-
-    /**
-     * @param Item[]
-     */
-    public function setItems($items) {
-        $this->items = $items;
-    }
-
-    /**
-     * @param String
-     */
-    public function setDiscount($discount) {
-        $this->discount = $discount;
-    }
-
-    /**
-     * @param Shipping
-     */
-    public function setShipping($shipping) {
-        $this->shipping = $shipping;
-    }
-
-    /**
-     * @param Settings
-     */
-    public function setSettings($settings) {
-        $this->settings = $settings;
-    }
-
-    /**
-     * @param Url[]
-     */
-    public function setUrls($urls) {
-        $this->urls = $urls;
     }
 }

@@ -1,70 +1,119 @@
 <?php
+
 namespace RedePay\Order\Request;
 
-use \RedePay\Utils\RequestInterface;
+use RedePay\Order\Order;
+use RedePay\Utils\RequestInterface;
 
-class OrderCreate implements RequestInterface {
-	private $order;
+/**
+ * Class OrderCreate
+ *
+ * @author Marjoel Moreira <marjoel@marjoel.com>
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
+class OrderCreate implements RequestInterface
+{
+    /**
+     * The Order instance
+     *
+     * @var Order
+     */
+    private $order;
 
-	public function __construct($order) {
-		$this->order = $order;
-	}
+    /**
+     * OrderCreate constructor.
+     *
+     * @param Order $order
+     */
+    public function __construct(Order $order)
+    {
+        $this->order = $order;
+    }
 
-	public function getPayload() {
-		$reference = $this->order->getReference();
-		$discount = $this->order->getDiscount();
-		$settings = $this->handleSettings($this->order);
-		$customer = $this->handleCustomer($this->order);
-		$shipping = $this->handleShipping($this->order);
-		$items = $this->handleItems($this->order);
-		$urls = $this->handleUrls($this->order);
-		
-		$parameters = array(
-			"reference" => $reference,
-			"discount" => $discount,
-			"settings" => $settings,
-			"customer" => $customer,
-			"shipping" => $shipping,
-			"items" => $items,
-			"urls" => $urls
-		);
+    /**
+     * {@inheritdoc}
+     */
+    public function getPayload()
+    {
+        $reference = $this->order->getReference();
+        $discount = (int)number_format($this->order->getDiscount(), 2, '', '');
+        $settings = $this->handleSettings($this->order);
+        $customer = $this->handleCustomer($this->order);
+        $shipping = $this->handleShipping($this->order);
+        $items = $this->handleItems($this->order);
+        $urls = $this->handleUrls($this->order);
+        
+        $parameters = array(
+            "reference" => $reference,
+            "discount" => $discount,
+            "settings" => $settings,
+            "customer" => $customer,
+            "shipping" => $shipping,
+            "items" => $items,
+            "urls" => $urls
+        );
 
-		if(!$discount || $discount == 0) {
-			unset($parameters["discount"]);
-		}
+        if (!$discount || $discount == 0) {
+            unset($parameters["discount"]);
+        }
 
-		if(empty($customer)) {
-			unset($parameters["customer"]);
-		}
+        if (empty($customer)) {
+            unset($parameters["customer"]);
+        }
 
-		if(empty($shipping)) {
-			unset($parameters["shipping"]);
-		}
+        if (empty($shipping)) {
+            unset($parameters["shipping"]);
+        }
 
-		if(empty($urls)) {
-			unset($parameters["urls"]);
-		}
-		return json_encode($parameters, JSON_UNESCAPED_UNICODE);
-	}
+        if (empty($urls)) {
+            unset($parameters["urls"]);
+        }
+        return json_encode($parameters, JSON_UNESCAPED_UNICODE);
+    }
 
-	public function getPath() {
-		return sprintf("%s/orders", $this->getApiUrl());
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getPath()
+    {
+        return sprintf("%s/orders", $this->getApiUrl());
+    }
 
-	public function getData() {
-		return null;
-	}
+    /**
+     * Gets the data
+     *
+     * @return null
+     */
+    public function getData()
+    {
+        return null;
+    }
 
-	public function getMethod() {
-		return self::HTTP_POST;
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getMethod()
+    {
+        return self::HTTP_POST;
+    }
 
-	public function getApiUrl() {
-		return self::API_URL;
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getApiUrl()
+    {
+        return self::API_URL;
+    }
 
-	private function handleCustomer($order) {
-        if($order->getCustomer()) {
+    /**
+     * Parses the Customer object
+     *
+     * @param Order $order
+     * @return array
+     */
+    private function handleCustomer(Order $order)
+    {
+        if ($order->getCustomer()) {
             $name = $order->getCustomer()->getName();
             $email = $order->getCustomer()->getEmail();
             $documents = $this->handleDocuments($order);
@@ -77,11 +126,20 @@ class OrderCreate implements RequestInterface {
                 "phones" => $phones
             );
             return $parameters;
+        } else {
+            // TODO: throw exception
         }
-	}
+    }
 
-	private function handleSettings($order) {
-        if($order->getSettings()) {
+    /**
+     * Parses the Settings object
+     *
+     * @param Order $order
+     * @return array
+     */
+    private function handleSettings(Order $order)
+    {
+        if ($order->getSettings()) {
             $expiresAt = $order->getSettings()->getExpiresAt();
             $maxInstallments = $order->getSettings()->getMaxInstallments();
             $attempts = $order->getSettings()->getAttempts();
@@ -94,23 +152,32 @@ class OrderCreate implements RequestInterface {
                 "shoppingCartRecovery" => $shoppingCartRecovery
             );
 
-            if(!$expiresAt) {
+            if (!$expiresAt) {
                 unset($parameters["expiresAt"]);
             }
 
-            if(!$attempts) {
+            if (!$attempts) {
                 unset($parameters["attempts"]);
             }
 
-            if(empty($shoppingCartRecovery)) {
+            if (empty($shoppingCartRecovery)) {
                 unset($parameters["shoppingCartRecovery"]);
             }
             return $parameters;
+        } else {
+            // TODO: throws exception
         }
-	}
+    }
 
-	private function handleShipping($order) {
-        $cost = $order->getShipping()->getCost();
+    /**
+     * Parses the Shipping object
+     *
+     * @param Order $order
+     * @return array
+     */
+    private function handleShipping(Order $order)
+    {
+        $cost = (int)number_format($order->getShipping()->getCost(), 2, '', '');
         $address = $this->handleAddress($order);
 
         $parameters = array(
@@ -118,41 +185,56 @@ class OrderCreate implements RequestInterface {
             "address" => $address
         );
 
-        if(!$cost || $cost == 0) {
+        if (!$cost || $cost == 0) {
             unset($parameters["cost"]);
         }
 
-        if(empty($address)) {
+        if (empty($address)) {
             unset($parameters["address"]);
         }
+
         return $parameters;
-	}
+    }
 
-	private function handleItems($order) {
-		$items = array();
-		foreach ($order->getItems() as $key => $item) {
-			$items[$key] = array(
-				"id" => $item->getId(),
-				"amount" => $item->getAmount(),
-				"quantity" => $item->getQuantity(),
-				"discount" => $item->getDiscount(),
-				"description" => $item->getDescription(),
-				"freight" => $item->getFreight()
-			);
+    /**
+     * Parses the Item objects
+     *
+     * @param Order $order
+     * @return array
+     */
+    private function handleItems(Order $order)
+    {
+        $items = array();
+        foreach ($order->getItems() as $key => $item) {
+            $items[$key] = array(
+                "id" => $item->getId(),
+                "amount" => (int)number_format($item->getAmount(), 2, '', ''),
+                "quantity" => $item->getQuantity(),
+                "discount" => (int)number_format($item->getDiscount(), 2, '', ''),
+                "description" => $item->getDescription(),
+                "freight" => (int)number_format($item->getFreight(), 2, '', ''),
+            );
 
-			if(!$item->getDiscount() || $item->getDiscount() == 0) {
-				unset($items[$key]["discount"]);
-			}
+            if (!$item->getDiscount() || $item->getDiscount() == 0) {
+                unset($items[$key]["discount"]);
+            }
 
-			if(!$item->getFreight() || $item->getFreight() == 0) {
-				unset($items[$key]["freight"]);
-			}
-		}
-		return $items;
-	}
+            if (!$item->getFreight() || $item->getFreight() == 0) {
+                unset($items[$key]["freight"]);
+            }
+        }
+        return $items;
+    }
 
-	private function handleUrls($order) {
-        if($order->getUrls()) {
+    /**
+     * Parses the Url objects
+     *
+     * @param Order $order
+     * @return array
+     */
+    private function handleUrls(Order $order)
+    {
+        if ($order->getUrls()) {
             $urls = array();
             foreach ($order->getUrls() as $key => $url) {
                 $urls[$key] = array(
@@ -161,102 +243,132 @@ class OrderCreate implements RequestInterface {
                 );
             }
             return $urls;
+        } else {
+            // TODO: throws exception
         }
-	}
+    }
 
-	private function handleAddress($order) {
-		$alias = $order->getShipping()->getAddress()->getAlias();
-		$street = $order->getShipping()->getAddress()->getStreet();
-		$number = $order->getShipping()->getAddress()->getNumber();
-		$complement = $order->getShipping()->getAddress()->getComplement();
-		$postalCode = $order->getShipping()->getAddress()->getPostalCode();
-		$district = $order->getShipping()->getAddress()->getDistrict();
-		$city = $order->getShipping()->getAddress()->getCity();
-		$state = $order->getShipping()->getAddress()->getState();
+    /**
+     * Parses the Address object
+     *
+     * @param Order $order
+     * @return array
+     */
+    private function handleAddress(Order $order)
+    {
+        $alias = $order->getShipping()->getAddress()->getAlias();
+        $street = $order->getShipping()->getAddress()->getStreet();
+        $number = $order->getShipping()->getAddress()->getNumber();
+        $complement = $order->getShipping()->getAddress()->getComplement();
+        $postalCode = $order->getShipping()->getAddress()->getPostalCode();
+        $district = $order->getShipping()->getAddress()->getDistrict();
+        $city = $order->getShipping()->getAddress()->getCity();
+        $state = $order->getShipping()->getAddress()->getState();
 
-		$parameters = array(
-			"alias" => $alias,
-			"street" => $street,
-			"number" => $number,
-			"complement" => $complement,
-			"postalCode" => $postalCode,
-			"district" => $district,
-			"city" => $city,
-			"state" => $state
-		);
+        $parameters = array(
+            "alias" => $alias,
+            "street" => $street,
+            "number" => $number,
+            "complement" => $complement,
+            "postalCode" => $postalCode,
+            "district" => $district,
+            "city" => $city,
+            "state" => $state
+        );
 
-		if(!$alias) {
-			unset($parameters["alias"]);
-		}
+        if (!$alias) {
+            unset($parameters["alias"]);
+        }
 
-		if(!$complement) {
-			unset($parameters["complement"]);
-		}
-		return $parameters;
-	}
+        if (!$complement) {
+            unset($parameters["complement"]);
+        }
+        return $parameters;
+    }
 
-	private function handleShoppingCartRecovery($order) {
-		$enable = $order->getSettings()->getShoppingCartRecovery()->getEnable();
-		$firstAlert = $order->getSettings()->getShoppingCartRecovery()->getFirstAlert();
-		$secondAlert = $order->getSettings()->getShoppingCartRecovery()->getSecondAlert();
-		$thirdAlert = $order->getSettings()->getShoppingCartRecovery()->getThirdAlert();
-		$fourthAlert = $order->getSettings()->getShoppingCartRecovery()->getFourthAlert();
-		$logoUrl = $order->getSettings()->getShoppingCartRecovery()->getLogoUrl();
+    /**
+     * Parses the ShoppingCartRecovery object
+     *
+     * @param Order $order
+     * @return array
+     */
+    private function handleShoppingCartRecovery(Order $order)
+    {
+        $enable = $order->getSettings()->getShoppingCartRecovery()->getEnable();
+        $firstAlert = $order->getSettings()->getShoppingCartRecovery()->getFirstAlert();
+        $secondAlert = $order->getSettings()->getShoppingCartRecovery()->getSecondAlert();
+        $thirdAlert = $order->getSettings()->getShoppingCartRecovery()->getThirdAlert();
+        $fourthAlert = $order->getSettings()->getShoppingCartRecovery()->getFourthAlert();
+        $logoUrl = $order->getSettings()->getShoppingCartRecovery()->getLogoUrl();
 
-		$parameters = array(
-			"enable" => $enable,
-			"firstAlert" => $firstAlert,
-			"secondAlert" => $secondAlert,
-			"thirdAlert" => $thirdAlert,
-			"fourthAlert" => $fourthAlert,
-			"logoUrl" => $logoUrl
-		);
+        $parameters = array(
+            "enable" => $enable,
+            "firstAlert" => $firstAlert,
+            "secondAlert" => $secondAlert,
+            "thirdAlert" => $thirdAlert,
+            "fourthAlert" => $fourthAlert,
+            "logoUrl" => $logoUrl
+        );
 
-		if(!$enable) {
-			unset($parameters["enable"]);
-		}
+        if (!$enable) {
+            unset($parameters["enable"]);
+        }
 
-		if(!$firstAlert) {
-			unset($parameters["firstAlert"]);
-		}
+        if (!$firstAlert) {
+            unset($parameters["firstAlert"]);
+        }
 
-		if(!$secondAlert) {
-			unset($parameters["secondAlert"]);
-		}
+        if (!$secondAlert) {
+            unset($parameters["secondAlert"]);
+        }
 
-		if(!$thirdAlert) {
-			unset($parameters["thirdAlert"]);
-		}
+        if (!$thirdAlert) {
+            unset($parameters["thirdAlert"]);
+        }
 
-		if(!$fourthAlert) {
-			unset($parameters["fourthAlert"]);
-		}
+        if (!$fourthAlert) {
+            unset($parameters["fourthAlert"]);
+        }
 
-		if(!$logoUrl) {
-			unset($parameters["logoUrl"]);
-		}
-		return $parameters;
-	}
+        if (!$logoUrl) {
+            unset($parameters["logoUrl"]);
+        }
+        return $parameters;
+    }
 
-	private function handlePhones($order) {
-		$phones = array();
-		foreach ($order->getCustomer()->getPhones() as $key => $phone) {
-			$phones[$key] = array(
-				"kind" => $phone->getKind(),
-				"number" => $phone->getNumber()
-			);
-		}
-		return $phones;
-	}
+    /**
+     * Parses the Phone objects
+     *
+     * @param Order $order
+     * @return array
+     */
+    private function handlePhones(Order $order)
+    {
+        $phones = array();
+        foreach ($order->getCustomer()->getPhones() as $key => $phone) {
+            $phones[$key] = array(
+                "kind" => $phone->getKind(),
+                "number" => $phone->getNumber()
+            );
+        }
+        return $phones;
+    }
 
-	private function handleDocuments($order) {
-		$documents = array();
-		foreach ($order->getCustomer()->getDocuments() as $key => $document) {
-			$documents[$key] = array(
-				"kind" => $document->getKind(),
-				"number" => $document->getNumber()
-			);
-		}
-		return $documents;
-	}
+    /**
+     * Parses the Document objects
+     *
+     * @param Order $order
+     * @return array
+     */
+    private function handleDocuments(Order $order)
+    {
+        $documents = array();
+        foreach ($order->getCustomer()->getDocuments() as $key => $document) {
+            $documents[$key] = array(
+                "kind" => $document->getKind(),
+                "number" => $document->getNumber()
+            );
+        }
+        return $documents;
+    }
 }

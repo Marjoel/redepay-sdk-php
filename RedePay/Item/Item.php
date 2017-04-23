@@ -1,154 +1,231 @@
 <?php
-/**
-*  @author   Marjoel Moreira [marjoel@marjoel.com]
-*  @license  https://www.gnu.org/licenses/gpl-3.0.en.html
-*/
 
 namespace RedePay\Item;
 
-class Item {
-    use \RedePay\Utils\Fillable;
+use RedePay\Utils\Fillable;
+
+/**
+ * Class Item
+ *
+ * @author Marjoel Moreira <marjoel@marjoel.com>
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
+class Item
+{
+    /**
+     * Traits
+     */
+    use Fillable;
 
     /**
-     * @param String
+     * The item ID
+     *
+     * @var string
      */
     private $id;
 
     /**
-     * @param String
+     * The item description
+     *
+     * @var string
      */
     private $description;
 
     /**
-     * @param integer
+     * The item amount
+     *
+     * @var float|int
      */
     private $amount;
 
     /**
-     * @param integer
+     * The item quantity
+     *
+     * @var int
      */
     private $quantity;
 
     /**
-     * @param integer
+     * The item freight amount
+     *
+     * @var float|int
      */
     private $freight;
 
     /**
-     * @param integer
+     * The item discount amount
+     *
+     * @var float|int
      */
     private $discount;
 
     /**
-     * @param Item
+     * Item constructor.
+     *
+     * @param array|null $data The default data to be filled in the current Item object
      */
-    public function __construct($data = null) {
-        if(isset($data)) {
+    public function __construct(array $data = null)
+    {
+        if (isset($data)) {
             $this->fill($data);
         }
     }
 
     /**
-     * @return String
+     * Sets the ID
+     *
+     * @param string $id
+     * @return Item
      */
-    public function getId() {
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets the ID
+     *
+     * @return string
+     */
+    public function getId()
+    {
         return $this->id;
     }
 
     /**
-     * @return String
+     * Sets the description
+     *
+     * @param string $description
+     * @return Item
      */
-    public function getDescription() {
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets the description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
         return $this->description;
     }
 
     /**
-     * @return integer
+     * Sets the item amount
+     *
+     * @param float|int $amount
+     * @throws \InvalidArgumentException
+     * @return Item
      */
-    public function getAmount() {
+    public function setAmount($amount)
+    {
+        if (is_numeric($amount)) {
+            $this->amount = $amount;
+        } else {
+            throw new \InvalidArgumentException($amount ." is not a valid number value");
+        }
+
+        return $this;
+    }
+
+    /**
+     * Gets the item amount
+     *
+     * @return float|int
+     */
+    public function getAmount()
+    {
         return $this->amount;
     }
 
     /**
-     * @return integer
+     * Sets the quantity
+     *
+     * @param int $quantity
+     * @throws \InvalidArgumentException
+     * @return Item
      */
-    public function getQuantity() {
+    public function setQuantity($quantity)
+    {
+        if (is_numeric($quantity)) {
+            $this->quantity = $quantity;
+        } else {
+            throw new \InvalidArgumentException($quantity ." is not a valid number value");
+        }
+
+        return $this;
+    }
+
+    /**
+     * Gets the quantity
+     *
+     * @return int
+     */
+    public function getQuantity()
+    {
         return $this->quantity;
     }
 
     /**
-     * @return integer
+     * Sets the freight amount
+     *
+     * @param float|int $freight
+     * @throws \InvalidArgumentException
+     * @return Item
      */
-    public function getFreight() {
+    public function setFreight($freight)
+    {
+        if (is_numeric($freight)) {
+            $this->freight = $freight;
+        } else {
+            throw new \InvalidArgumentException($freight ." is not a valid number value");
+        }
+
+        return $this;
+    }
+
+    /**
+     * Gets the freight amount
+     *
+     * @return float|int
+     */
+    public function getFreight()
+    {
         return $this->freight;
     }
 
     /**
-     * @return integer
+     * Sets the discount amount
+     *
+     * @param float|int $discount
+     * @throws \InvalidArgumentException
+     * @return Item
      */
-    public function getDiscount() {
-        return $this->discount;
-    }
-
-    /**
-     * @param String
-     */
-    public function setId($id) {
-        $this->id = $id;
-    }
-
-    /**
-     * @param String
-     */
-    public function setDescription($description) {
-        $this->description = $description;
-    }
-
-    /**
-     * @param integer
-     */
-    public function setAmount($amount) {
-        if(is_numeric($amount)) {
-           $this->amount = $amount; 
-        }
-        else {
-            throw new \InvalidArgumentException($amount ." is not a valid number value");
-        }
-    }
-
-    /**
-     * @param integer
-     */
-    public function setQuantity($quantity) {
-        if(is_numeric($quantity)) {
-           $this->quantity = $quantity; 
-        }
-        else {
-            throw new \InvalidArgumentException($quantity ." is not a valid number value");
-        }
-    }
-
-    /**
-     * @param integer
-     */
-    public function setFreight($freight) {
-        if(is_numeric($freight)) {
-           $this->freight = $freight; 
-        }
-        else {
-            throw new \InvalidArgumentException($freight ." is not a valid number value");
-        }
-    }
-
-    /**
-     * @param integer
-     */
-    public function setDiscount($discount) {
-        if(is_numeric($discount)) {
-           $this->discount = $discount; 
-        }
-        else {
+    public function setDiscount($discount)
+    {
+        if (is_numeric($discount)) {
+            $this->discount = $discount;
+        } else {
             throw new \InvalidArgumentException($discount ." is not a valid number value");
         }
+
+        return $this;
+    }
+
+    /**
+     * Gets the discount amount
+     *
+     * @return float|int
+     */
+    public function getDiscount()
+    {
+        return $this->discount;
     }
 }
