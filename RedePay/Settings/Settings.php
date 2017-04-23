@@ -3,6 +3,7 @@
 namespace RedePay\Settings;
 
 use RedePay\ShoppingCartRecovery\ShoppingCartRecovery;
+use RedePay\Utils\Fillable;
 
 /**
  * Class Settings
@@ -15,7 +16,7 @@ class Settings
     /**
      * Traits
      */
-    use \RedePay\Utils\Fillable;
+    use Fillable;
 
     /**
      * The expiration date

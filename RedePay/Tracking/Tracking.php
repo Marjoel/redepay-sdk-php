@@ -2,6 +2,8 @@
 
 namespace RedePay\Tracking;
 
+use RedePay\Utils\Fillable;
+
 /**
  * Class Tracking
  *
@@ -13,7 +15,7 @@ class Tracking
     /**
      * Traits
      */
-    use \RedePay\Utils\Fillable;
+    use Fillable;
 
     /**
      * The tracking number

@@ -2,6 +2,9 @@
 
 namespace RedePay\Phone;
 
+use RedePay\Utils\Fillable;
+use RedePay\Utils\RemoveMask;
+
 /**
  * Class Phone
  *
@@ -13,8 +16,8 @@ class Phone
     /**
      * Traits
      */
-    use \RedePay\Utils\Fillable;
-    use \RedePay\Utils\RemoveMask;
+    use Fillable;
+    use RemoveMask;
 
     /**
      * Enum constants

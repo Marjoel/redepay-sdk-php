@@ -2,6 +2,9 @@
 
 namespace RedePay\Address;
 
+use RedePay\Utils\Fillable;
+use RedePay\Utils\RemoveMask;
+
 /**
  * Class Address
  *
@@ -13,8 +16,8 @@ class Address
     /**
      * Traits
      */
-    use \RedePay\Utils\Fillable;
-    use \RedePay\Utils\RemoveMask;
+    use Fillable;
+    use RemoveMask;
 
     /**
      * The alias

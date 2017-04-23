@@ -2,12 +2,12 @@
 
 namespace RedePay\Transaction;
 
-use \RedePay\Customer\Customer;
-use \RedePay\Payment\Payment;
-use \RedePay\Shipping\Shipping;
-use \RedePay\Item\Item;
-use \RedePay\History\History;
-use \RedePay\Transaction\Transaction;
+use RedePay\Customer\Customer;
+use RedePay\History\History;
+use RedePay\Item\Item;
+use RedePay\Payment\Payment;
+use RedePay\Shipping\Shipping;
+use RedePay\Shipping\ShippingBuilder;
 
 /**
  * Class TransactionBuilder
@@ -20,13 +20,13 @@ trait TransactionBuilder
     /**
      * Traits
      */
-    use \RedePay\Shipping\ShippingBuilder;
+    use ShippingBuilder;
 
     /**
      * Factory a Transaction object
      *
      * @param \stdClass $data
-     * @return \RedePay\Transaction\Transaction
+     * @return Transaction
      */
     private function buildTransaction($data)
     {

@@ -2,6 +2,8 @@
 
 namespace RedePay\Payment;
 
+use RedePay\Utils\Fillable;
+
 /**
  * Class Payment
  *
@@ -13,7 +15,7 @@ class Payment
     /**
      * Traits
      */
-    use \RedePay\Utils\Fillable;
+    use Fillable;
 
     /**
      * The method

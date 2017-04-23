@@ -3,7 +3,7 @@
 namespace RedePay\Tracking\Request;
 
 use RedePay\Tracking\Tracking;
-use \RedePay\Utils\RequestInterface;
+use RedePay\Utils\RequestInterface;
 
 /**
  * Class TrackingDelete

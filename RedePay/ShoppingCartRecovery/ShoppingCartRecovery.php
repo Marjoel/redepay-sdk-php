@@ -2,6 +2,8 @@
 
 namespace RedePay\ShoppingCartRecovery;
 
+use RedePay\Utils\Fillable;
+
 /**
  * Class ShoppingCartRecovery
  *
@@ -13,7 +15,7 @@ class ShoppingCartRecovery
     /**
      * Traits
      */
-    use \RedePay\Utils\Fillable;
+    use Fillable;
 
     /**
      * Sets the recovery to enabled

@@ -4,6 +4,7 @@ namespace RedePay\Customer;
 
 use RedePay\Document\Document;
 use RedePay\Phone\Phone;
+use RedePay\Utils\Fillable;
 
 /**
  * Class Customer
@@ -16,7 +17,7 @@ class Customer
     /**
      * Traits
      */
-    use \RedePay\Utils\Fillable;
+    use Fillable;
 
     /**
      * The customer name

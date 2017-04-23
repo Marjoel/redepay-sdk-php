@@ -2,10 +2,9 @@
 
 namespace RedePay\Tracking;
 
-use \RedePay\Utils\Client;
-use \RedePay\Utils\AbstractHandler;
-use \RedePay\Tracking\Request\TrackingCreate;
-use \RedePay\Tracking\Request\TrackingDelete;
+use RedePay\Utils\AbstractHandler;
+use RedePay\Tracking\Request\TrackingCreate;
+use RedePay\Tracking\Request\TrackingDelete;
 
 /**
  * Class TrackingHandler

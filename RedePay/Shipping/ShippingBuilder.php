@@ -2,8 +2,7 @@
 
 namespace RedePay\Shipping;
 
-use \RedePay\Address\Address;
-use \RedePay\Shipping\Shipping;
+use RedePay\Address\Address;
 
 /**
  * Class ShippingBuilder

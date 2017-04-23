@@ -3,7 +3,7 @@
 namespace RedePay\Order\Request;
 
 use RedePay\Order\Order;
-use \RedePay\Utils\RequestInterface;
+use RedePay\Utils\RequestInterface;
 
 /**
  * Class OrderCreate

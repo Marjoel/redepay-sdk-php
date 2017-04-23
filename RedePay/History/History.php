@@ -2,6 +2,8 @@
 
 namespace RedePay\History;
 
+use RedePay\Utils\Fillable;
+
 /**
  * Class History
  *
@@ -13,7 +15,7 @@ class History
     /**
      * Traits
      */
-    use \RedePay\Utils\Fillable;
+    use Fillable;
 
     /**
      * The date

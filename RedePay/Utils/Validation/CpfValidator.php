@@ -2,6 +2,8 @@
 
 namespace RedePay\Utils\Validation;
 
+use RedePay\Utils\RemoveMask;
+
 /**
  * Class CpfValidator
  *
@@ -13,7 +15,7 @@ trait CpfValidator
     /**
      * Traits
      */
-    use \RedePay\Utils\RemoveMask;
+    use RemoveMask;
 
     /**
      * Validates a CPF string

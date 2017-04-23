@@ -2,6 +2,9 @@
 
 namespace RedePay\Document;
 
+use RedePay\Utils\Fillable;
+use RedePay\Utils\Validation\CpfValidator;
+
 /**
  * Class Document
  *
@@ -13,8 +16,8 @@ class Document
     /**
      * Traits
      */
-    use \RedePay\Utils\Fillable;
-    use \RedePay\Utils\Validation\CpfValidator;
+    use Fillable;
+    use CpfValidator;
 
     /**
      * Enum constants

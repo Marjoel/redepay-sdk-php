@@ -8,6 +8,7 @@ use RedePay\Item\Item;
 use RedePay\Settings\Settings;
 use RedePay\Shipping\Shipping;
 use RedePay\Url\Url;
+use RedePay\Utils\Fillable;
 
 /**
  * Class Order
@@ -20,7 +21,7 @@ class Order
     /**
      * Traits
      */
-    use \RedePay\Utils\Fillable;
+    use Fillable;
 
     /**
      * The order ID

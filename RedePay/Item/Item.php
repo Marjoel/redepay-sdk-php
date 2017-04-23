@@ -2,6 +2,8 @@
 
 namespace RedePay\Item;
 
+use RedePay\Utils\Fillable;
+
 /**
  * Class Item
  *
@@ -13,7 +15,7 @@ class Item
     /**
      * Traits
      */
-    use \RedePay\Utils\Fillable;
+    use Fillable;
 
     /**
      * The item ID

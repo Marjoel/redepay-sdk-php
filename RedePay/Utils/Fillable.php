@@ -13,7 +13,7 @@ trait Fillable
     /**
      * Traits
      */
-    use \RedePay\Utils\CaseConverter;
+    use CaseConverter;
 
     /**
      * Fill the current object with a data array

@@ -2,11 +2,12 @@
 
 namespace RedePay\Transaction;
 
+use RedePay\Customer\Customer;
 use RedePay\History\History;
 use RedePay\Item\Item;
-use \RedePay\Payment\Payment;
-use \RedePay\Customer\Customer;
+use RedePay\Payment\Payment;
 use RedePay\Shipping\Shipping;
+use RedePay\Utils\Fillable;
 
 /**
  * Class Transaction
@@ -19,7 +20,7 @@ class Transaction
     /**
      * Traits
      */
-    use \RedePay\Utils\Fillable;
+    use Fillable;
 
     /**
      * The transaction ID

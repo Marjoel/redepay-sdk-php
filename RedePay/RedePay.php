@@ -2,10 +2,10 @@
 
 namespace RedePay;
 
-use \RedePay\Utils\Client;
-use \RedePay\Transaction\TransactionHandler;
-use \RedePay\Order\OrderHandler;
-use \RedePay\Tracking\TrackingHandler;
+use RedePay\Order\OrderHandler;
+use RedePay\Tracking\TrackingHandler;
+use RedePay\Transaction\TransactionHandler;
+use RedePay\Utils\Client;
 
 /**
  * Class RedePay

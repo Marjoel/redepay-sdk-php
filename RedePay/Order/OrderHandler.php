@@ -2,10 +2,9 @@
 
 namespace RedePay\Order;
 
-use \RedePay\Utils\Client;
-use \RedePay\Utils\AbstractHandler;
-use \RedePay\Order\Request\OrderGet;
-use \RedePay\Order\Request\OrderCreate;
+use RedePay\Order\Request\OrderGet;
+use RedePay\Order\Request\OrderCreate;
+use RedePay\Utils\AbstractHandler;
 
 /**
  * Class OrderHandler

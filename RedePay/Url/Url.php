@@ -2,6 +2,8 @@
 
 namespace RedePay\Url;
 
+use RedePay\Utils\Fillable;
+
 /**
  * Class Url
  *
@@ -13,7 +15,7 @@ class Url
     /**
      * Traits
      */
-    use \RedePay\Utils\Fillable;
+    use Fillable;
 
     /**
      * Enum constants

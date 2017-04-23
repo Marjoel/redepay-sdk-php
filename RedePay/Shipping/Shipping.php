@@ -3,6 +3,7 @@
 namespace RedePay\Shipping;
 
 use RedePay\Address\Address;
+use RedePay\Utils\Fillable;
 
 /**
  * Class Shipping
@@ -15,7 +16,7 @@ class Shipping
     /**
      * Traits
      */
-    use \RedePay\Utils\Fillable;
+    use Fillable;
 
     /**
      * The shipping address

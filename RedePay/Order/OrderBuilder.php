@@ -2,11 +2,11 @@
 
 namespace RedePay\Order;
 
-use \RedePay\Shipping\Shipping;
-use \RedePay\Customer\Customer;
-use \RedePay\Item\Item;
-use \RedePay\History\History;
-use \RedePay\Order\Order;
+use RedePay\Customer\Customer;
+use RedePay\History\History;
+use RedePay\Item\Item;
+use RedePay\Shipping\Shipping;
+use RedePay\Shipping\ShippingBuilder;
 
 /**
  * Class OrderBuilder
@@ -19,7 +19,7 @@ trait OrderBuilder
     /**
      * Traits
      */
-    use \RedePay\Shipping\ShippingBuilder;
+    use ShippingBuilder;
 
     /**
      * Factory an Order object

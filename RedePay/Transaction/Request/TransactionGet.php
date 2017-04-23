@@ -2,7 +2,7 @@
 
 namespace RedePay\Transaction\Request;
 
-use \RedePay\Utils\RequestInterface;
+use RedePay\Utils\RequestInterface;
 
 /**
  * Class TransactionGet

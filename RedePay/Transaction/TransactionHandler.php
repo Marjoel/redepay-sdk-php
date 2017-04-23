@@ -2,9 +2,8 @@
 
 namespace RedePay\Transaction;
 
-use \RedePay\Utils\AbstractHandler;
-use \RedePay\Utils\Client;
-use \RedePay\Transaction\Request\TransactionGet;
+use RedePay\Transaction\Request\TransactionGet;
+use RedePay\Utils\AbstractHandler;
 
 /**
  * Class TransactionHandler
@@ -17,7 +16,7 @@ class TransactionHandler extends AbstractHandler
     /**
      * Traits
      */
-    use \RedePay\Transaction\TransactionBuilder;
+    use TransactionBuilder;
 
     /**
      * Gets a transaction

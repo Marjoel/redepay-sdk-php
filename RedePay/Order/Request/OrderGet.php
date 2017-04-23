@@ -2,7 +2,7 @@
 
 namespace RedePay\Order\Request;
 
-use \RedePay\Utils\RequestInterface;
+use RedePay\Utils\RequestInterface;
 
 /**
  * Class OrderGet
