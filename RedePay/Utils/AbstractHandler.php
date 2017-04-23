@@ -8,16 +8,22 @@ namespace RedePay\Utils;
  * @author Marjoel Moreira <marjoel@marjoel.com>
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html
  */
-abstract class AbstractHandler {
+abstract class AbstractHandler
+{
     /**
-     * @param Client
+     * The HTTP Client
+     *
+     * @var Client
      */
     protected $client;
 
     /**
-     * @param Client
+     * AbstractHandler constructor.
+     *
+     * @param Client $client
      */
-    public function __construct($client) {
+    public function __construct($client)
+    {
         $this->client = $client;
     }
 }

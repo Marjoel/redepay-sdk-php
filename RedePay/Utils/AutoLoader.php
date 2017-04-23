@@ -23,7 +23,8 @@ $mapping = array(
     "RedePay\Settings\Settings" => $directory . "/Settings/Settings.php",
     "RedePay\Shipping\Shipping" => $directory . "/Shipping/Shipping.php",
     "RedePay\Shipping\ShippingBuilder" => $directory . "/Shipping/ShippingBuilder.php",
-    "RedePay\ShoppingCartRecovery\ShoppingCartRecovery" => $directory . "/ShoppingCartRecovery/ShoppingCartRecovery.php",
+    "RedePay\ShoppingCartRecovery\ShoppingCartRecovery" =>
+        $directory . "/ShoppingCartRecovery/ShoppingCartRecovery.php",
     "RedePay\Tracking\Tracking" => $directory . "/Tracking/Tracking.php",
     "RedePay\Tracking\TrackingHandler" => $directory . "/Tracking/TrackingHandler.php",
     "RedePay\Tracking\TrackingBuilder" => $directory . "/Tracking/TrackingBuilder.php",

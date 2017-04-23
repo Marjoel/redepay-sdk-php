@@ -2,6 +2,7 @@
 
 namespace RedePay\Tracking\Request;
 
+use RedePay\Tracking\Tracking;
 use \RedePay\Utils\RequestInterface;
 
 /**
@@ -10,41 +11,88 @@ use \RedePay\Utils\RequestInterface;
  * @author Marjoel Moreira <marjoel@marjoel.com>
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html
  */
-class TrackingCreate implements RequestInterface {
-	private $tracking;
-	private $transactionId;
+class TrackingCreate implements RequestInterface
+{
+    /**
+     * The Tracking object
+     *
+     * @var Tracking
+     */
+    private $tracking;
 
-	public function __construct($tracking, $transactionId) {
+    /**
+     * The transaction ID
+     *
+     * @var string
+     */
+    private $transactionId;
+
+    /**
+     * TrackingCreate constructor.
+     *
+     * @param Tracking $tracking
+     * @param string $transactionId
+     */
+    public function __construct(Tracking $tracking, $transactionId)
+    {
         $this->tracking = $tracking;
         $this->transactionId = $transactionId;
     }
 
-	public function getPayload() {
-		$trackingNumber = $this->tracking->getCode();
-		
-		$parameters = array(
-			"trackingNumber" => $trackingNumber
-		);
-		return json_encode($parameters, JSON_UNESCAPED_UNICODE);
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getPayload()
+    {
+        $trackingNumber = $this->tracking->getCode();
+        
+        $parameters = array(
+            "trackingNumber" => $trackingNumber
+        );
+        return json_encode($parameters, JSON_UNESCAPED_UNICODE);
+    }
 
-    public function getTransactionId() {
+    /**
+     * Gets the transaction ID
+     *
+     * @return string
+     */
+    public function getTransactionId()
+    {
         return $this->transactionId;
     }
 
-	public function getPath() {
-		return sprintf("%s/transactions/%s/trackings", $this->getApiUrl(), $this->getTransactionId());
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getPath()
+    {
+        return sprintf("%s/transactions/%s/trackings", $this->getApiUrl(), $this->getTransactionId());
+    }
 
-	public function getData() {
-		return null;
-	}
+    /**
+     * Gets the data
+     *
+     * @return null
+     */
+    public function getData()
+    {
+        return null;
+    }
 
-	public function getMethod() {
-		return self::HTTP_POST;
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getMethod()
+    {
+        return self::HTTP_POST;
+    }
 
-	public function getApiUrl() {
-		return self::API_URL;
-	}
+    /**
+     * {@inheritdoc}
+     */
+    public function getApiUrl()
+    {
+        return self::API_URL;
+    }
 }

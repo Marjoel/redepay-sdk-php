@@ -8,168 +8,263 @@ namespace RedePay\Address;
  * @author Marjoel Moreira <marjoel@marjoel.com>
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html
  */
-class Address {
+class Address
+{
+    /**
+     * Traits
+     */
     use \RedePay\Utils\Fillable;
     use \RedePay\Utils\RemoveMask;
 
     /**
-     * @param String
+     * The alias
+     *
+     * @var string
      */
     private $alias;
 
     /**
-     * @param String
+     * The street
+     *
+     * @var string
      */
     private $street;
 
     /**
-     * @param String
+     * The number
+     *
+     * @var string
      */
     private $number;
 
     /**
-     * @param String
+     * The complement
+     *
+     * @var string
      */
     private $complement;
 
     /**
-     * @param String
+     * The postal code
+     *
+     * @var string
      */
     private $postalCode;
 
     /**
-     * @param String
+     * The district/neighborhood
+     *
+     * @var string
      */
     private $district;
 
     /**
-     * @param String
+     * The city
+     *
+     * @var string
      */
     private $city;
 
     /**
-     * @param String
+     * The state/province
+     *
+     * @var string
      */
     private $state;
 
     /**
-     * @param Address
+     * Address constructor.
+     *
+     * @param array|null $data The default data to be filled in the current Address object
      */
-    public function __construct($data = null) {
-        if(isset($data)) {
+    public function __construct(array $data = null)
+    {
+        if (isset($data)) {
             $this->fill($data);
         }
     }
 
     /**
-     * @return String
+     * Sets the alias
+     *
+     * @param string $alias
+     * @return Address
      */
-    public function getAlias() {
+    public function setAlias($alias)
+    {
+        $this->alias = $alias;
+
+        return $this;
+    }
+
+    /**
+     * Gets the alias
+     *
+     * @return string
+     */
+    public function getAlias()
+    {
         return $this->alias;
     }
 
     /**
-     * @return String
+     * Sets the street name
+     *
+     * @param string $street
+     * @return Address
      */
-    public function getStreet() {
+    public function setStreet($street)
+    {
+        $this->street = $street;
+
+        return $this;
+    }
+
+    /**
+     * Gets the street name
+     *
+     * @return string
+     */
+    public function getStreet()
+    {
         return $this->street;
     }
 
     /**
-     * @return String
+     * Sets the number
+     *
+     * @param string $number
+     * @return Address
      */
-    public function getNumber() {
+    public function setNumber($number)
+    {
+        $this->number = $number;
+
+        return $this;
+    }
+
+    /**
+     * Gets the number
+     *
+     * @return string
+     */
+    public function getNumber()
+    {
         return $this->number;
     }
 
     /**
-     * @return String
+     * Sets the complement
+     *
+     * @param string $complement
+     * @return Address
      */
-    public function getComplement() {
+    public function setComplement($complement)
+    {
+        $this->complement = $complement;
+
+        return $this;
+    }
+
+    /**
+     * Gets the complement
+     *
+     * @return string
+     */
+    public function getComplement()
+    {
         return $this->complement;
     }
 
     /**
-     * @return String
+     * Sets the postal code
+     *
+     * @param string $postalCode
+     * @return Address
      */
-    public function getPostalCode() {
+    public function setPostalCode($postalCode)
+    {
+        $this->postalCode = $this->removeMask($postalCode);
+
+        return $this;
+    }
+
+    /**
+     * Gets the postal code
+     *
+     * @return string
+     */
+    public function getPostalCode()
+    {
         return $this->postalCode;
     }
 
     /**
-     * @return String
+     * Sets the district
+     *
+     * @param string $district
+     * @return Address
      */
-    public function getDistrict() {
+    public function setDistrict($district)
+    {
+        $this->district = $district;
+
+        return $this;
+    }
+
+    /**
+     * Gets the district
+     *
+     * @return string
+     */
+    public function getDistrict()
+    {
         return $this->district;
     }
 
     /**
-     * @return String
+     * Sets the city
+     *
+     * @param string $city
+     * @return Address
      */
-    public function getCity() {
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Gets the city
+     *
+     * @return string
+     */
+    public function getCity()
+    {
         return $this->city;
     }
 
     /**
-     * @return String
+     * Sets the state
+     *
+     * @param string $state
+     * @return Address
      */
-    public function getState() {
-        return $this->state;
-    }
-
-    /**
-     * @param String
-     */
-    public function setAlias($alias) {
-        $this->alias = $alias;
-    }
-
-    /**
-     * @param String
-     */
-    public function setStreet($street) {
-        $this->street = $street;
-    }
-
-    /**
-     * @param String
-     */
-    public function setNumber($number) {
-        $this->number = $number;
-    }
-
-    /**
-     * @param String
-     */
-    public function setComplement($complement) {
-        $this->complement = $complement;
-    }
-
-    /**
-     * @param String
-     */
-    public function setPostalCode($postalCode) {
-        $this->postalCode = $this->removeMask($postalCode);
-    }
-
-    /**
-     * @param String
-     */
-    public function setDistrict($district) {
-        $this->district = $district;
-    }
-
-    /**
-     * @param String
-     */
-    public function setCity($city) {
-        $this->city = $city;
-    }
-
-    /**
-     * @param String
-     */
-    public function setState($state) {
+    public function setState($state)
+    {
         $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * Gets the state
+     *
+     * @return string
+     */
+    public function getState()
+    {
+        return $this->state;
     }
 }

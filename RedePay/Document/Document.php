@@ -8,59 +8,93 @@ namespace RedePay\Document;
  * @author Marjoel Moreira <marjoel@marjoel.com>
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html
  */
-class Document {
+class Document
+{
+    /**
+     * Traits
+     */
     use \RedePay\Utils\Fillable;
     use \RedePay\Utils\Validation\CpfValidator;
 
     /**
-     * @param String
+     * Enum constants
+     */
+    const KIND_CPF = 'cpf';
+
+    /**
+     * The document type
+     *
+     * @var string
      */
     private $kind;
 
     /**
-     * @param String
+     * The document number
+     *
+     * @var string
      */
     private $number;
 
     /**
-     * @param Document
+     * Document constructor.
+     *
+     * @param array|null $data The default data to be filled in the current Document object
      */
-    public function __construct($data = null) {
-        if(isset($data)) {
+    public function __construct(array $data = null)
+    {
+        if (isset($data)) {
             $this->fill($data);
         }
     }
 
     /**
-     * @return String
+     * Sets the kind
+     *
+     * @param string $kind
+     * @return Document
      */
-    public function getKind() {
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+
+        return $this;
+    }
+
+    /**
+     * Gets the kind
+     *
+     * @return string
+     */
+    public function getKind()
+    {
         return $this->kind;
     }
 
     /**
-     * @return String
+     * Sets the number
+     *
+     * @param string $number
+     * @throws \InvalidArgumentException
+     * @return Document
      */
-    public function getNumber() {
-        return $this->number;
-    }
-
-    /**
-     * @param String
-     */
-    public function setKind($kind) {
-        $this->kind = $kind;
-    }
-
-    /**
-     * @param String
-     */
-    public function setNumber($number) {
-        if($this->cpfValidator($number)) {
+    public function setNumber($number)
+    {
+        if ($this->cpfValidator($number)) {
             $this->number = $this->removeMask($number);
-        }
-        else {
+        } else {
             throw new \InvalidArgumentException($number ." is not a valid cpf value");
         }
+
+        return $this;
+    }
+
+    /**
+     * Gets the number
+     *
+     * @return string
+     */
+    public function getNumber()
+    {
+        return $this->number;
     }
 }

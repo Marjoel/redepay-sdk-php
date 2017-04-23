@@ -12,10 +12,21 @@ use \RedePay\Transaction\Request\TransactionGet;
  * @author Marjoel Moreira <marjoel@marjoel.com>
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html
  */
-class TransactionHandler extends AbstractHandler {
+class TransactionHandler extends AbstractHandler
+{
+    /**
+     * Traits
+     */
     use \RedePay\Transaction\TransactionBuilder;
 
-    public function get($transactionId) {
+    /**
+     * Gets a transaction
+     *
+     * @param string $transactionId
+     * @return Transaction
+     */
+    public function get($transactionId)
+    {
         $request = new TransactionGet($transactionId);
         $response = $this->client->send($request);
         return $this->buildTransaction($response);

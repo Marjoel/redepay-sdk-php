@@ -2,71 +2,102 @@
 
 namespace RedePay\Shipping;
 
+use RedePay\Address\Address;
+
 /**
  * Class Shipping
  *
  * @author Marjoel Moreira <marjoel@marjoel.com>
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html
  */
-class Shipping {
+class Shipping
+{
+    /**
+     * Traits
+     */
     use \RedePay\Utils\Fillable;
 
     /**
-     * @param Address
+     * The shipping address
+     *
+     * @var Address
      */
     private $address;
 
     /**
-     * @param String
+     * The shipping cost
+     *
+     * @var float|int
      */
     private $cost;
 
     /**
-     * @param String
+     * The shipping tracking number
+     *
+     * @var string
      */
     private $trackingNumber;
 
-    /**
-     * @param Shipping
-     */
-    public function __construct($data = null) {
-        if(isset($data)) {
+    public function __construct(array $data = null)
+    {
+        if (isset($data)) {
             $this->fill($data);
         }
     }
 
     /**
+     * Sets the address
+     *
+     * @param Address $address
+     * @return Shipping
+     */
+    public function setAddress(Address $address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Gets the address
+     *
      * @return Address
      */
-    public function getAddress() {
+    public function getAddress()
+    {
         return $this->address;
     }
 
     /**
-     * @return String
+     * Sets the cost
+     *
+     * @param float|int $cost
+     * @return Shipping
      */
-    public function getCost() {
+    public function setCost($cost)
+    {
+        $this->cost = $cost;
+
+        return $this;
+    }
+
+    /**
+     * Gets the cost
+     *
+     * @return float|int
+     */
+    public function getCost()
+    {
         return $this->cost;
     }
 
     /**
-     * @return String
+     * Gets the tracking number
+     *
+     * @return string
      */
-    public function getTrackingNumber() {
+    public function getTrackingNumber()
+    {
         return $this->trackingNumber;
-    }
-
-    /**
-     * @param String
-     */
-    public function setAddress($address) {
-        $this->address = $address;
-    }
-
-    /**
-     * @param String
-     */
-    public function setCost($cost) {
-        $this->cost = $cost;
     }
 }

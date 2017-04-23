@@ -15,22 +15,35 @@ use \RedePay\Transaction\Transaction;
  * @author Marjoel Moreira <marjoel@marjoel.com>
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html
  */
-trait TransactionBuilder {
+trait TransactionBuilder
+{
+    /**
+     * Traits
+     */
     use \RedePay\Shipping\ShippingBuilder;
-    
-    private function buildTransaction($data) {
-        $data->customer = new Customer((object) array(
-                "name" => $data->customerName,
-                "email" => $data->customerEmail
-            )
-        );
 
-        $data->payment = new Payment((object) array(
-                "method" => $data->paymentMethod,
-                "cardBrand" => $data->cardBrand,
-                "installments" => $data->installments
-            )
-        );
+    /**
+     * Factory a Transaction object
+     *
+     * @param \stdClass $data
+     * @return \RedePay\Transaction\Transaction
+     */
+    private function buildTransaction($data)
+    {
+        $customer = [
+            'name' => $data->customerName,
+            'email' => $data->customerEmail
+        ];
+
+        $data->customer = new Customer((object)$customer);
+
+        $payment = [
+            'method' => $data->paymentMethod,
+            'cardBrand' => $data->cardBrand,
+            'installments' => $data->installments
+        ];
+
+        $data->payment = new Payment((object)$payment);
 
         $data->shipping->trackingNumber = $data->trackingNumber;
         $data->shipping = new Shipping($this->buildShipping($data->shipping));

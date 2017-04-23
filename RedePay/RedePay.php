@@ -13,38 +13,53 @@ use \RedePay\Tracking\TrackingHandler;
  * @author Marjoel Moreira <marjoel@marjoel.com>
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html
  */
-class RedePay {
+class RedePay
+{
     /**
-     * @param Client
+     * The API Client
+     *
+     * @var Client
      */
     private $client;
 
     /**
-     * @param TransactionHandler
+     * The transaction handler
+     *
+     * @var TransactionHandler
      */
     private $transactionHandler;
 
     /**
-     * @param OrderHandler
+     * The order handler
+     *
+     * @var OrderHandler
      */
     private $orderHandler;
 
     /**
-     * @param TrackingHandler
+     * The tracking handler
+     *
+     * @var TrackingHandler
      */
     private $trackingHandler;
 
     /**
-     * @param String
+     * RedePay constructor.
+     *
+     * @param string $apiKey
      */
-    public function __construct($apiKey) {
+    public function __construct($apiKey)
+    {
         $this->client = new Client($apiKey);
     }
 
     /**
+     * Gets the transaction handler
+     *
      * @return TransactionHandler
      */
-    public function transaction() {
+    public function transaction()
+    {
         if (!$this->transactionHandler instanceof TransactionHandler) {
             $this->transactionHandler = new TransactionHandler($this->client);
         }
@@ -52,9 +67,12 @@ class RedePay {
     }
 
     /**
+     * Gets the order handler
+     *
      * @return OrderHandler
      */
-    public function order() {
+    public function order()
+    {
         if (!$this->orderHandler instanceof OrderHandler) {
             $this->orderHandler = new OrderHandler($this->client);
         }
@@ -62,9 +80,12 @@ class RedePay {
     }
 
     /**
+     * Gets the tracking handler
+     *
      * @return TrackingHandler
      */
-    public function tracking() {
+    public function tracking()
+    {
         if (!$this->trackingHandler instanceof TrackingHandler) {
             $this->trackingHandler = new TrackingHandler($this->client);
         }

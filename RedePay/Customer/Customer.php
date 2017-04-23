@@ -2,97 +2,150 @@
 
 namespace RedePay\Customer;
 
+use RedePay\Document\Document;
+use RedePay\Phone\Phone;
+
 /**
  * Class Customer
  *
  * @author Marjoel Moreira <marjoel@marjoel.com>
  * @license https://www.gnu.org/licenses/gpl-3.0.en.html
  */
-class Customer {
+class Customer
+{
+    /**
+     * Traits
+     */
     use \RedePay\Utils\Fillable;
 
     /**
-     * @param String
+     * The customer name
+     *
+     * @var string
      */
     private $name;
 
     /**
-     * @param String
+     * The customer email address
+     *
+     * @var string
      */
     private $email;
 
     /**
-     * @param Document[]
+     * The customer documents
+     *
+     * @var Document[]
      */
     private $documents;
 
     /**
-     * @param Phone[]
+     * The customer phone numbers
+     *
+     * @var Phone[]
      */
     private $phones;
 
     /**
-     * @param Customer
+     * Customer constructor.
+     *
+     * @param array|null $data The default data to be filled in the current Customer object
      */
-    public function __construct($data = null) {
-        if(isset($data)) {
+    public function __construct(array $data = null)
+    {
+        if (isset($data)) {
             $this->fill($data);
         }
     }
 
     /**
-     * @param String
+     * Sets the name
+     *
+     * @param string $name
+     * @return Customer
      */
-    public function getName() {
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets the name
+     *
+     * @return string
+     */
+    public function getName()
+    {
         return $this->name;
     }
 
     /**
-     * @param String
+     * Sets the email address
+     *
+     * @param string $email
+     * @return Customer
      */
-    public function getEmail() {
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets the email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
         return $this->email;
     }
 
     /**
+     * Sets the documents array
+     *
+     * @param array $documents
+     * @return Customer
+     */
+    public function setDocuments(array $documents)
+    {
+        $this->documents = $documents;
+
+        return $this;
+    }
+
+    /**
+     * Gets the documents
+     *
      * @return Document[]
      */
-    public function getDocuments() {
+    public function getDocuments()
+    {
         return $this->documents;
     }
 
     /**
+     * Sets the phones array
+     *
+     * @param array $phones
+     * @return Customer
+     */
+    public function setPhones(array $phones)
+    {
+        $this->phones = $phones;
+
+        return $this;
+    }
+
+    /**
+     * Gets the phones
      * @return Phone[]
      */
-    public function getPhones() {
+    public function getPhones()
+    {
         return $this->phones;
-    }
-
-    /**
-     * @return String
-     */
-    public function setName($name) {
-        $this->name = $name;
-    }
-
-    /**
-     * @return String
-     */
-    public function setEmail($email) {
-        $this->email = $email;
-    }
-
-    /**
-     * @param Document[]
-     */
-    public function setDocuments($documents) {
-        $this->documents = $documents;
-    }
-
-    /**
-     * @param Phone[]
-     */
-    public function setPhones($phones) {
-        $this->phones = $phones;
     }
 }
