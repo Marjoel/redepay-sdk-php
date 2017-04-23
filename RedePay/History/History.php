@@ -1,68 +1,99 @@
 <?php
-/**
-*  @author   Marjoel Moreira [marjoel@marjoel.com]
-*  @license  https://www.gnu.org/licenses/gpl-3.0.en.html
-*/
 
 namespace RedePay\History;
 
-class History {
-    use \RedePay\Utils\Fillable;
+use RedePay\Utils\Fillable;
+
+/**
+ * Class History
+ *
+ * @author Marjoel Moreira <marjoel@marjoel.com>
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
+class History
+{
+    /**
+     * Traits
+     */
+    use Fillable;
 
     /**
-     * @param String
+     * The date
+     *
+     * @var string
      */
     private $date;
 
     /**
-     * @param String
+     * The status
+     *
+     * @var string
      */
     private $status;
 
     /**
-     * @param String
+     * The ID
+     *
+     * @var string
      */
     private $id;
 
     /**
-     * @param String
+     * The value
+     *
+     * @var string
      */
     private $value;
 
     /**
-     * @param History
+     * History constructor.
+     *
+     * @param array|null $data The default data to be filled in the current History object
      */
-    public function __construct($data = null) {
-        if(isset($data)) {
+    public function __construct(array $data = null)
+    {
+        if (isset($data)) {
             $this->fill($data);
         }
     }
 
     /**
-     * @return String
+     * Gets the date
+     *
+     * @return string
      */
-    public function getDate() {
+    public function getDate()
+    {
         return $this->date;
     }
 
     /**
-     * @return String
+     * Gets the status
+     *
+     * @return string
      */
-    public function getStatus() {
+    public function getStatus()
+    {
         return $this->status;
     }
 
     /**
-     * @return String
+     * Gets the ID
+     *
+     * @return string
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
     /**
-     * @return String
+     * Gets the value
+     *
+     * @return string
      */
-    public function getValue() {
+    public function getValue()
+    {
         return $this->value;
     }
 }

@@ -1,19 +1,31 @@
 <?php
-/**
-*  @author   Marjoel Moreira [marjoel@marjoel.com]
-*  @license  https://www.gnu.org/licenses/gpl-3.0.en.html
-*/
 
 namespace RedePay\Transaction;
 
-use \RedePay\Utils\AbstractHandler;
-use \RedePay\Utils\Client;
-use \RedePay\Transaction\Request\TransactionGet;
+use RedePay\Transaction\Request\TransactionGet;
+use RedePay\Utils\AbstractHandler;
 
-class TransactionHandler extends AbstractHandler {
-    use \RedePay\Transaction\TransactionBuilder;
+/**
+ * Class TransactionHandler
+ *
+ * @author Marjoel Moreira <marjoel@marjoel.com>
+ * @license https://www.gnu.org/licenses/gpl-3.0.en.html
+ */
+class TransactionHandler extends AbstractHandler
+{
+    /**
+     * Traits
+     */
+    use TransactionBuilder;
 
-    public function get($transactionId) {
+    /**
+     * Gets a transaction
+     *
+     * @param string $transactionId
+     * @return Transaction
+     */
+    public function get($transactionId)
+    {
         $request = new TransactionGet($transactionId);
         $response = $this->client->send($request);
         return $this->buildTransaction($response);
